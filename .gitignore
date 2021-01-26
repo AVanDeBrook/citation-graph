@@ -1,0 +1,11 @@
+# Typical binary files
+**/*.bin
+**/*.hex
+**/*.exe
+
+# C/C++ and Java compilation objects/artifacts
+**/*.o
+**/*.class
+
+# VSCode workspace/project settings
+.vscode
