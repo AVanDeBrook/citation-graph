@@ -12,9 +12,16 @@ To clone:
 git clone https://github.com/AVanDeBrook/citation-graph.git
 ```
 To build:
-```
-TODO
+The following dependencies are needed:
+
+Python v3.x Dependencies:
+* `bibtexparser`
+* `re` (if not provided by default w/ python 3.x)
+
+Use the following script to download the dependencies listed above
+```bash
+pip install bibtexparser re
 ```
 
-## Dependencies
-* [Doxygen](https://www.doxygen.nl/index.html) [(GitHub)](https://github.com/doxygen/doxygen)
+Non-Python Dependencies:
+* [Doxygen](https://www.doxygen.nl/index.html) [(GitHub,](https://github.com/doxygen/doxygen) [man pages)](https://docs.oracle.com/cd/E88353_01/html/E37839/doxygen-1.html)

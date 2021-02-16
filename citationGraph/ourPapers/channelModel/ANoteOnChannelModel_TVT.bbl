@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{NeeAwaterMorikura1999}
+R.~van Nee, G.~Awater, M.~Morikura, H.~Takanashi, M.~Webster, and K.~Halford,
+  ``New high-rate wireless {LAN} standards,'' {\em IEEE Communications
+  Magazine}, vol.~37, pp.~82--88, December 1999.
+
+\bibitem{IEEEstandardOFDM1999}
+IEEE{ Standard 802.11a-1999}, ``Supplement to information
+  technology---telecommunications and information exchange between
+  systems---local and metropolitan area networks---specific requirements---part
+  11: Wireless {LAN} medium access control ({MAC}) and physical layer ({PHY})
+  specifications: High speed physical layer ({PHY}) in the 5 {GHz} band,''
+  1999.
+
+\bibitem{Chayat1997}
+N.~Chayat, ``Tentative criteria for comparison of modulation methods,'' {\em
+  Document: IEEE P802.11-97/96}, September 1997.
+
+\bibitem{BeekEdforsSandell1995}
+J.~J. van~de Beek, O.~Edfors, M.~Sandell, S.~K. Wilson, and P.~O.
+  B{\"o}rjesson, ``On channel estimation in {OFDM} systems,'' {\em Proceedings
+  of the IEEE VTS 45th Vehicular Technology Conference}, vol.~2, pp.~815--819,
+  July 1995.
+
+\bibitem{LiuLi2003c}
+J.~Liu and J.~Li, ``A {MIMO} system with backward compatibility for
+  {OFDM}-based {WLAN}s,'' {\em EURASIP Journal on Applied Signal Processing
+  {\em (Special Issue on MIMO Communications and Signal Processing)}},
+  vol.~2004, pp.~696--706, May 2004.
+
+\bibitem{LiuLi2004}
+J.~Liu and J.~Li, ``Parameter estimation and error reduction for {OFDM}-based
+  {WLAN}s,'' {\em IEEE Transactions on Mobile Computing}, vol.~3, pp.~152--163,
+  April--June 2004.
+
+\bibitem{LiuLi2006}
+J.~Liu and J.~Li, ``Packet design and signal processing for {OFDM}-based mobile
+  broadband wireless communication systems,'' {\em IEEE Transactions on Mobile
+  Computing}, vol.~5, pp.~1133--1142, September 2006.
+
+\bibitem{LiLiMiller2001}
+H.~Li, J.~Li, and S.~L. Miller, ``Decoupled multiuser code-timing estimation
+  for code-division multiple-access communication systems,'' {\em IEEE
+  Transactions on communications}, vol.~49, pp.~1425--1436, August 2001.
+
+\end{thebibliography}

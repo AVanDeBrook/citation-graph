@@ -1,0 +1,1681 @@
+{
+  "nodelist": [
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 0,
+      "len": 52,
+      "macroname": "documentclass",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 14,
+            "len": 28,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 15,
+                "len": 26,
+                "chars": "11pt,draftnofoot,onecolumn",
+                "lineno": 1,
+                "colno": 15
+              }
+            ],
+            "delimiters": [
+              "[",
+              "]"
+            ],
+            "lineno": 1,
+            "colno": 14
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 42,
+            "len": 10,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 43,
+                "len": 8,
+                "chars": "IEEEtran",
+                "lineno": 1,
+                "colno": 43
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 1,
+            "colno": 42
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 1,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 52,
+      "len": 2,
+      "chars": "\n\n",
+      "lineno": 1,
+      "colno": 52
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 54,
+      "len": 4,
+      "macroname": "def",
+      "nodeargd": {
+        "argspec": "",
+        "argnlist": []
+      },
+      "macro_post_space": "",
+      "lineno": 3,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 58,
+      "len": 11,
+      "macroname": "spacingset",
+      "nodeargd": {
+        "argspec": "",
+        "argnlist": []
+      },
+      "macro_post_space": "",
+      "lineno": 3,
+      "colno": 4
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 69,
+      "len": 2,
+      "chars": "#1",
+      "lineno": 3,
+      "colno": 15
+    },
+    {
+      "nodetype": "LatexGroupNode",
+      "pos": 71,
+      "len": 43,
+      "nodelist": [
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 72,
+          "len": 4,
+          "macroname": "def",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 3,
+          "colno": 18
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 76,
+          "len": 16,
+          "macroname": "baselinestretch",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 3,
+          "colno": 22
+        },
+        {
+          "nodetype": "LatexGroupNode",
+          "pos": 92,
+          "len": 4,
+          "nodelist": [
+            {
+              "nodetype": "LatexCharsNode",
+              "pos": 93,
+              "len": 2,
+              "chars": "#1",
+              "lineno": 3,
+              "colno": 39
+            }
+          ],
+          "delimiters": [
+            "{",
+            "}"
+          ],
+          "lineno": 3,
+          "colno": 38
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 96,
+          "len": 6,
+          "macroname": "small",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 3,
+          "colno": 42
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 102,
+          "len": 11,
+          "macroname": "normalsize",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 3,
+          "colno": 48
+        }
+      ],
+      "delimiters": [
+        "{",
+        "}"
+      ],
+      "lineno": 3,
+      "colno": 17
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 114,
+      "len": 2,
+      "chars": "\n\n",
+      "lineno": 3,
+      "colno": 60
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 116,
+      "len": 71,
+      "comment": "\\def\\ninept{\\def\\baselinestretch{.95}\\let\\normalsize\\small\\normalsize}",
+      "comment_post_space": "",
+      "lineno": 5,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 187,
+      "len": 2,
+      "chars": "\n\n",
+      "lineno": 5,
+      "colno": 71
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 189,
+      "len": 30,
+      "macroname": "setlength",
+      "nodeargd": {
+        "argspec": "[{{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 199,
+            "len": 12,
+            "nodelist": [
+              {
+                "nodetype": "LatexMacroNode",
+                "pos": 200,
+                "len": 10,
+                "macroname": "topmargin",
+                "nodeargd": {
+                  "argspec": "",
+                  "argnlist": []
+                },
+                "macro_post_space": "",
+                "lineno": 7,
+                "colno": 11
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 7,
+            "colno": 10
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 211,
+            "len": 8,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 212,
+                "len": 6,
+                "chars": "-0.4in",
+                "lineno": 7,
+                "colno": 23
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 7,
+            "colno": 22
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 7,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 219,
+      "len": 13,
+      "chars": "             ",
+      "lineno": 7,
+      "colno": 30
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 232,
+      "len": 50,
+      "comment": " Move the top margin up with the negative value.",
+      "comment_post_space": "\n",
+      "lineno": 7,
+      "colno": 43
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 282,
+      "len": 30,
+      "macroname": "setlength",
+      "nodeargd": {
+        "argspec": "[{{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 292,
+            "len": 13,
+            "nodelist": [
+              {
+                "nodetype": "LatexMacroNode",
+                "pos": 293,
+                "len": 11,
+                "macroname": "textheight",
+                "nodeargd": {
+                  "argspec": "",
+                  "argnlist": []
+                },
+                "macro_post_space": "",
+                "lineno": 8,
+                "colno": 11
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 8,
+            "colno": 10
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 305,
+            "len": 7,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 306,
+                "len": 5,
+                "chars": "9.0in",
+                "lineno": 8,
+                "colno": 24
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 8,
+            "colno": 23
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 8,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 312,
+      "len": 16,
+      "chars": "                ",
+      "lineno": 8,
+      "colno": 30
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 328,
+      "len": 29,
+      "comment": " Set the hight of the text.",
+      "comment_post_space": "\n",
+      "lineno": 8,
+      "colno": 46
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 357,
+      "len": 29,
+      "macroname": "setlength",
+      "nodeargd": {
+        "argspec": "[{{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 367,
+            "len": 12,
+            "nodelist": [
+              {
+                "nodetype": "LatexMacroNode",
+                "pos": 368,
+                "len": 10,
+                "macroname": "textwidth",
+                "nodeargd": {
+                  "argspec": "",
+                  "argnlist": []
+                },
+                "macro_post_space": "",
+                "lineno": 9,
+                "colno": 11
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 9,
+            "colno": 10
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 379,
+            "len": 7,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 380,
+                "len": 5,
+                "chars": "6.9in",
+                "lineno": 9,
+                "colno": 23
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 9,
+            "colno": 22
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 9,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 386,
+      "len": 15,
+      "chars": "               ",
+      "lineno": 9,
+      "colno": 29
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 401,
+      "len": 29,
+      "comment": " Set the width of the text.",
+      "comment_post_space": "\n",
+      "lineno": 9,
+      "colno": 44
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 430,
+      "len": 34,
+      "macroname": "setlength",
+      "nodeargd": {
+        "argspec": "[{{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 440,
+            "len": 16,
+            "nodelist": [
+              {
+                "nodetype": "LatexMacroNode",
+                "pos": 441,
+                "len": 14,
+                "macroname": "oddsidemargin",
+                "nodeargd": {
+                  "argspec": "",
+                  "argnlist": []
+                },
+                "macro_post_space": "",
+                "lineno": 10,
+                "colno": 11
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 10,
+            "colno": 10
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 456,
+            "len": 8,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 457,
+                "len": 6,
+                "chars": "-0.2in",
+                "lineno": 10,
+                "colno": 27
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 10,
+            "colno": 26
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 10,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 464,
+      "len": 11,
+      "chars": "           ",
+      "lineno": 10,
+      "colno": 34
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 475,
+      "len": 66,
+      "comment": " Set the odd side left margin; useful for the double-sided case.",
+      "comment_post_space": "\n",
+      "lineno": 10,
+      "colno": 45
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 541,
+      "len": 35,
+      "macroname": "setlength",
+      "nodeargd": {
+        "argspec": "[{{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 551,
+            "len": 17,
+            "nodelist": [
+              {
+                "nodetype": "LatexMacroNode",
+                "pos": 552,
+                "len": 15,
+                "macroname": "evensidemargin",
+                "nodeargd": {
+                  "argspec": "",
+                  "argnlist": []
+                },
+                "macro_post_space": "",
+                "lineno": 11,
+                "colno": 11
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 11,
+            "colno": 10
+          },
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 568,
+            "len": 8,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 569,
+                "len": 6,
+                "chars": "-0.2in",
+                "lineno": 11,
+                "colno": 28
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 11,
+            "colno": 27
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 11,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 576,
+      "len": 2,
+      "chars": "\n\n",
+      "lineno": 11,
+      "colno": 35
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 578,
+      "len": 14,
+      "comment": "\\parskip=1pt",
+      "comment_post_space": "\n",
+      "lineno": 13,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 592,
+      "len": 20,
+      "macroname": "usepackage",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 603,
+            "len": 9,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 604,
+                "len": 7,
+                "chars": "amssymb",
+                "lineno": 14,
+                "colno": 12
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 14,
+            "colno": 11
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 14,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 612,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 14,
+      "colno": 20
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 613,
+      "len": 20,
+      "macroname": "usepackage",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 624,
+            "len": 9,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 625,
+                "len": 7,
+                "chars": "amsmath",
+                "lineno": 15,
+                "colno": 12
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 15,
+            "colno": 11
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 15,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 633,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 15,
+      "colno": 20
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 634,
+      "len": 21,
+      "macroname": "usepackage",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 645,
+            "len": 10,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 646,
+                "len": 8,
+                "chars": "latexsym",
+                "lineno": 16,
+                "colno": 12
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 16,
+            "colno": 11
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 16,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 655,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 16,
+      "colno": 21
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 656,
+      "len": 17,
+      "macroname": "usepackage",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 667,
+            "len": 6,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 668,
+                "len": 4,
+                "chars": "epsf",
+                "lineno": 17,
+                "colno": 12
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 17,
+            "colno": 11
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 17,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 673,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 17,
+      "colno": 17
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 674,
+      "len": 20,
+      "comment": "\\usepackage{psfig}",
+      "comment_post_space": "\n",
+      "lineno": 18,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 694,
+      "len": 21,
+      "macroname": "usepackage",
+      "nodeargd": {
+        "argspec": "[{",
+        "argnlist": [
+          null,
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 705,
+            "len": 10,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 706,
+                "len": 8,
+                "chars": "graphicx",
+                "lineno": 19,
+                "colno": 12
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 19,
+            "colno": 11
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 19,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 715,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 19,
+      "colno": 21
+    },
+    {
+      "nodetype": "LatexCommentNode",
+      "pos": 716,
+      "len": 23,
+      "comment": "\\usepackage{showkeys}",
+      "comment_post_space": "\n",
+      "lineno": 20,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexMacroNode",
+      "pos": 739,
+      "len": 30,
+      "macroname": "input",
+      "nodeargd": {
+        "argspec": "{",
+        "argnlist": [
+          {
+            "nodetype": "LatexGroupNode",
+            "pos": 745,
+            "len": 24,
+            "nodelist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 746,
+                "len": 22,
+                "chars": "../commonFiles/comdefs",
+                "lineno": 21,
+                "colno": 7
+              }
+            ],
+            "delimiters": [
+              "{",
+              "}"
+            ],
+            "lineno": 21,
+            "colno": 6
+          }
+        ]
+      },
+      "macro_post_space": "",
+      "lineno": 21,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 769,
+      "len": 3,
+      "chars": "\n\n\n",
+      "lineno": 21,
+      "colno": 30
+    },
+    {
+      "nodetype": "LatexEnvironmentNode",
+      "pos": 772,
+      "len": 1551,
+      "environmentname": "document",
+      "nodelist": [
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 788,
+          "len": 2,
+          "chars": "\n\n",
+          "lineno": 24,
+          "colno": 16
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 790,
+          "len": 11,
+          "macroname": "spacingset",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 26,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexGroupNode",
+          "pos": 801,
+          "len": 5,
+          "nodelist": [
+            {
+              "nodetype": "LatexCharsNode",
+              "pos": 802,
+              "len": 3,
+              "chars": "1.5",
+              "lineno": 26,
+              "colno": 12
+            }
+          ],
+          "delimiters": [
+            "{",
+            "}"
+          ],
+          "lineno": 26,
+          "colno": 11
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 806,
+          "len": 3,
+          "chars": "\n\n\n",
+          "lineno": 26,
+          "colno": 16
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 809,
+          "len": 63,
+          "macroname": "title",
+          "nodeargd": {
+            "argspec": "{",
+            "argnlist": [
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 815,
+                "len": 57,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 816,
+                    "len": 55,
+                    "chars": "Tentative Criteria for Comparison of Modulation Methods",
+                    "lineno": 29,
+                    "colno": 7
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 29,
+                "colno": 6
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 29,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 872,
+          "len": 1,
+          "chars": "\n",
+          "lineno": 29,
+          "colno": 63
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 873,
+          "len": 10,
+          "comment": "\\ninept%",
+          "comment_post_space": "\n",
+          "lineno": 30,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 883,
+          "len": 2,
+          "comment": "",
+          "comment_post_space": "\n",
+          "lineno": 31,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 885,
+          "len": 20,
+          "comment": "\\spacingset{1.127}",
+          "comment_post_space": "\n",
+          "lineno": 32,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 905,
+          "len": 60,
+          "macroname": "author",
+          "nodeargd": {
+            "argspec": "{",
+            "argnlist": [
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 912,
+                "len": 53,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexMacroNode",
+                    "pos": 913,
+                    "len": 17,
+                    "macroname": "IEEEauthorblockN",
+                    "nodeargd": {
+                      "argspec": "",
+                      "argnlist": []
+                    },
+                    "macro_post_space": "",
+                    "lineno": 33,
+                    "colno": 8
+                  },
+                  {
+                    "nodetype": "LatexGroupNode",
+                    "pos": 930,
+                    "len": 11,
+                    "nodelist": [
+                      {
+                        "nodetype": "LatexCharsNode",
+                        "pos": 931,
+                        "len": 9,
+                        "chars": "N. Chayat",
+                        "lineno": 33,
+                        "colno": 26
+                      }
+                    ],
+                    "delimiters": [
+                      "{",
+                      "}"
+                    ],
+                    "lineno": 33,
+                    "colno": 25
+                  },
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 941,
+                    "len": 1,
+                    "chars": "\n",
+                    "lineno": 33,
+                    "colno": 36
+                  },
+                  {
+                    "nodetype": "LatexMacroNode",
+                    "pos": 942,
+                    "len": 17,
+                    "macroname": "IEEEauthorblockA",
+                    "nodeargd": {
+                      "argspec": "",
+                      "argnlist": []
+                    },
+                    "macro_post_space": "",
+                    "lineno": 34,
+                    "colno": 0
+                  },
+                  {
+                    "nodetype": "LatexGroupNode",
+                    "pos": 959,
+                    "len": 2,
+                    "nodelist": [],
+                    "delimiters": [
+                      "{",
+                      "}"
+                    ],
+                    "lineno": 34,
+                    "colno": 17
+                  },
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 961,
+                    "len": 1,
+                    "chars": " ",
+                    "lineno": 34,
+                    "colno": 19
+                  },
+                  {
+                    "nodetype": "LatexCommentNode",
+                    "pos": 962,
+                    "len": 2,
+                    "comment": "",
+                    "comment_post_space": "\n",
+                    "lineno": 34,
+                    "colno": 20
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 33,
+                "colno": 7
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 33,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 965,
+          "len": 1,
+          "chars": "\n",
+          "lineno": 35,
+          "colno": 1
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 966,
+          "len": 2,
+          "comment": "",
+          "comment_post_space": "\n",
+          "lineno": 36,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 968,
+          "len": 2,
+          "comment": "",
+          "comment_post_space": "\n",
+          "lineno": 37,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 970,
+          "len": 10,
+          "macroname": "maketitle",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 38,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 980,
+          "len": 2,
+          "comment": "",
+          "comment_post_space": "\n",
+          "lineno": 38,
+          "colno": 10
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 982,
+          "len": 1,
+          "comment": "",
+          "comment_post_space": "",
+          "lineno": 39,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 983,
+          "len": 3,
+          "chars": "\n\n\n",
+          "lineno": 39,
+          "colno": 1
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 986,
+          "len": 19,
+          "macroname": "section",
+          "nodeargd": {
+            "argspec": "*[{",
+            "argnlist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 994,
+                "len": 1,
+                "chars": "*",
+                "lineno": 42,
+                "colno": 8
+              },
+              null,
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 995,
+                "len": 10,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 996,
+                    "len": 8,
+                    "chars": "Abstract",
+                    "lineno": 42,
+                    "colno": 10
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 42,
+                "colno": 9
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 42,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1005,
+          "len": 423,
+          "chars": "\n\nImmunity to multipath and noise: Data shall be provided for performance in multipath without noise, multipath with thermal noise and thermal noise only. The multipath models are discussed in the apppendix. The comparison will be conducted without antenna diversity. Multipath without noise: a curve of PER (Packet Error Rate) will be brought versus TRMS (the RMS delay spread). The lowest delay spread at which the PER=10",
+          "lineno": 42,
+          "colno": 19
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1428,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 421
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1430,
+          "len": 33,
+          "chars": " (success probability drops to 90",
+          "lineno": 44,
+          "colno": 423
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1463,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 456
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1465,
+          "len": 195,
+          "chars": ") will be used for comparison (it may happen that at higher TRMS some methods will exhibit an improvement, due to inherent diversity). Multipath with noise: set the TRMS to the point where PER=10",
+          "lineno": 44,
+          "colno": 458
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1660,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 653
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1662,
+          "len": 102,
+          "chars": " was obtained. Draw a curve of PER versus average Eb/N0 (such curve should drop and then flatten at 10",
+          "lineno": 44,
+          "colno": 655
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1764,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 757
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1766,
+          "len": 32,
+          "chars": "). The Eb/N0 at which the PER=20",
+          "lineno": 44,
+          "colno": 759
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1798,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 791
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1800,
+          "len": 174,
+          "chars": " is obtained will be used for comparison. Thermal noise only: in this case there is no fading channel. Draw a curve of PER versus Eb/N0 and look for the point at which PER=10",
+          "lineno": 44,
+          "colno": 793
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 1974,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 967
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 1976,
+          "len": 31,
+          "chars": ". The Eb/N0 at which the PER=10",
+          "lineno": 44,
+          "colno": 969
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2007,
+          "len": 2,
+          "macroname": "%",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 44,
+          "colno": 1000
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2009,
+          "len": 43,
+          "chars": " is obtained will be used for comparison\n\n\n",
+          "lineno": 44,
+          "colno": 1002
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2052,
+          "len": 23,
+          "macroname": "section",
+          "nodeargd": {
+            "argspec": "*[{",
+            "argnlist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 2060,
+                "len": 1,
+                "chars": "*",
+                "lineno": 47,
+                "colno": 8
+              },
+              null,
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 2061,
+                "len": 14,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 2062,
+                    "len": 12,
+                    "chars": " Index Terms",
+                    "lineno": 47,
+                    "colno": 10
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 47,
+                "colno": 9
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 47,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2075,
+          "len": 4,
+          "chars": "\n\n\n\n",
+          "lineno": 47,
+          "colno": 23
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2079,
+          "len": 34,
+          "macroname": "section",
+          "nodeargd": {
+            "argspec": "*[{",
+            "argnlist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 2087,
+                "len": 1,
+                "chars": "*",
+                "lineno": 51,
+                "colno": 8
+              },
+              null,
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 2088,
+                "len": 25,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 2089,
+                    "len": 23,
+                    "chars": "Important Contributions",
+                    "lineno": 51,
+                    "colno": 10
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 51,
+                "colno": 9
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 51,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2113,
+          "len": 66,
+          "chars": "\n\nThis the first paper to use FIR channel for OFDM simulations.\n\n\n",
+          "lineno": 51,
+          "colno": 34
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2179,
+          "len": 29,
+          "macroname": "section",
+          "nodeargd": {
+            "argspec": "*[{",
+            "argnlist": [
+              {
+                "nodetype": "LatexCharsNode",
+                "pos": 2187,
+                "len": 1,
+                "chars": "*",
+                "lineno": 56,
+                "colno": 8
+              },
+              null,
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 2188,
+                "len": 20,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 2189,
+                    "len": 18,
+                    "chars": "Impotant Citations",
+                    "lineno": 56,
+                    "colno": 10
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 56,
+                "colno": 9
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 56,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2208,
+          "len": 2,
+          "chars": "\n\n",
+          "lineno": 56,
+          "colno": 29
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 2210,
+          "len": 16,
+          "comment": "\\begin{itemize}",
+          "comment_post_space": "",
+          "lineno": 58,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2226,
+          "len": 3,
+          "chars": "\n\n\n",
+          "lineno": 58,
+          "colno": 16
+        },
+        {
+          "nodetype": "LatexCommentNode",
+          "pos": 2229,
+          "len": 14,
+          "comment": "\\end{itemize}",
+          "comment_post_space": "",
+          "lineno": 61,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2243,
+          "len": 3,
+          "chars": "\n\n\n",
+          "lineno": 61,
+          "colno": 14
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2246,
+          "len": 18,
+          "macroname": "bibliographystyle",
+          "nodeargd": {
+            "argspec": "",
+            "argnlist": []
+          },
+          "macro_post_space": "",
+          "lineno": 64,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexGroupNode",
+          "pos": 2264,
+          "len": 8,
+          "nodelist": [
+            {
+              "nodetype": "LatexCharsNode",
+              "pos": 2265,
+              "len": 6,
+              "chars": "ieeetr",
+              "lineno": 64,
+              "colno": 19
+            }
+          ],
+          "delimiters": [
+            "{",
+            "}"
+          ],
+          "lineno": 64,
+          "colno": 18
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2272,
+          "len": 1,
+          "chars": "\n",
+          "lineno": 64,
+          "colno": 26
+        },
+        {
+          "nodetype": "LatexMacroNode",
+          "pos": 2273,
+          "len": 33,
+          "macroname": "bibliography",
+          "nodeargd": {
+            "argspec": "{",
+            "argnlist": [
+              {
+                "nodetype": "LatexGroupNode",
+                "pos": 2286,
+                "len": 20,
+                "nodelist": [
+                  {
+                    "nodetype": "LatexCharsNode",
+                    "pos": 2287,
+                    "len": 18,
+                    "chars": "../commonFiles/all",
+                    "lineno": 65,
+                    "colno": 14
+                  }
+                ],
+                "delimiters": [
+                  "{",
+                  "}"
+                ],
+                "lineno": 65,
+                "colno": 13
+              }
+            ]
+          },
+          "macro_post_space": "",
+          "lineno": 65,
+          "colno": 0
+        },
+        {
+          "nodetype": "LatexCharsNode",
+          "pos": 2306,
+          "len": 3,
+          "chars": "\n\n\n",
+          "lineno": 65,
+          "colno": 33
+        }
+      ],
+      "nodeargd": {
+        "argspec": "",
+        "argnlist": []
+      },
+      "lineno": 24,
+      "colno": 0
+    },
+    {
+      "nodetype": "LatexCharsNode",
+      "pos": 2323,
+      "len": 1,
+      "chars": "\n",
+      "lineno": 68,
+      "colno": 14
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+\documentclass[11pt,draftnofoot,onecolumn]{IEEEtran}
+
+\def\spacingset#1{\def\baselinestretch{#1}\small\normalsize}
+
+%\def\ninept{\def\baselinestretch{.95}\let\normalsize\small\normalsize}
+
+\setlength{\topmargin}{-0.4in}             % Move the top margin up with the negative value.
+\setlength{\textheight}{9.0in}                % Set the hight of the text.
+\setlength{\textwidth}{6.9in}               % Set the width of the text.
+\setlength{\oddsidemargin}{-0.2in}           % Set the odd side left margin; useful for the double-sided case.
+\setlength{\evensidemargin}{-0.2in}
+
+%\parskip=1pt
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{epsf}
+%\usepackage{psfig}
+\usepackage{graphicx}
+%\usepackage{showkeys}
+\input{../commonFiles/comdefs}
+
+
+\begin{document}
+
+\spacingset{1.5}
+
+
+\title{Channel Estimation for an OFDM-Based MIMO System}
+%\ninept%
+%
+%\spacingset{1.127}
+\author{\IEEEauthorblockN{Jianhua Liu}
+\IEEEauthorblockA{Department of Electrical and Systems Engineering\\
+Embry-Riddle Aeronautical University\\
+Daytona Beach, FL 32114\\
+Email: Jianhua.Liu@erau.edu} %
+\and \IEEEauthorblockN{Jian Li}
+\IEEEauthorblockA{Department of Electrical and Computer Engineering\\
+P.O. Box 116130\\
+University of Florida\\
+Gainesville, FL 32611-6130}%
+}
+%
+%
+\maketitle%
+%
+
+
+\section*{Abstract}
+
+We consider the problem of channel estimation for an orthogonal
+frequency-division multiplexing (OFDM)-based multiple-input
+multiple-output (MIMO) wireless local area network system. We show
+that an existing channel estimation approach, which is based on a
+sub-carrier level orthogonal training symbol design and the finite
+impulse response channel model, can suffer from severe performance
+degradations for realistic OFDM channels. As such, we propose a new
+channel estimation approach, which employs a modified version of
+this training symbol design and a polynomial fitting/interpolation
+method. Our simulation results show that our new channel estimation
+approach significantly outperforms the existing one for the
+realistic OFDM channels.
+
+
+\section*{ Index Terms}
+
+Channel estimation, OFDM, MIMO system, Wireless LAN standards.
+
+
+\section*{Important Contributions}
+
+This paper argues that the FIR channel model cannot accurately
+characterize the channels for the OFDM-based systems but is a good choice for simple system performance simulations.
+
+Based on this augument, this paper proposes a new channel estimation approach,
+a polynomial fitting/interpolation
+method based on a modified training symbol design,
+for an OFDM-based MIMO WLAN system.
+Simulation results have
+shown that the new channel estimation approach can significantly
+outperform existing ones.
+
+
+\section*{Impotant Citations}
+
+\begin{itemize}
+
+\item \cite{Chayat1997} proposed an FIR (finite impulse response)
+filter channel model for the simulation of the time-dispersive fading channels for the
+OFDM-based communication systems.
+
+\item \cite{LiuLi2004} used a non-FIR channel for channel estimation as the FIR channel model is not appropriate for channel estimation. 
+
+\item \cite{WangLiu2002} uses polynomial approximation of the channel.
+
+
+\end{itemize}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{../commonFiles/all}
+
+
+\end{document}

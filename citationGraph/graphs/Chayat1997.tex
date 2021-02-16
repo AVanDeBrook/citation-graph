@@ -1,0 +1,68 @@
+\documentclass[11pt,draftnofoot,onecolumn]{IEEEtran}
+
+\def\spacingset#1{\def\baselinestretch{#1}\small\normalsize}
+
+%\def\ninept{\def\baselinestretch{.95}\let\normalsize\small\normalsize}
+
+\setlength{\topmargin}{-0.4in}             % Move the top margin up with the negative value.
+\setlength{\textheight}{9.0in}                % Set the hight of the text.
+\setlength{\textwidth}{6.9in}               % Set the width of the text.
+\setlength{\oddsidemargin}{-0.2in}           % Set the odd side left margin; useful for the double-sided case.
+\setlength{\evensidemargin}{-0.2in}
+
+%\parskip=1pt
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{epsf}
+%\usepackage{psfig}
+\usepackage{graphicx}
+%\usepackage{showkeys}
+\input{../commonFiles/comdefs}
+
+
+\begin{document}
+
+\spacingset{1.5}
+
+
+\title{Tentative Criteria for Comparison of Modulation Methods}
+%\ninept%
+%
+%\spacingset{1.127}
+\author{\IEEEauthorblockN{N. Chayat}
+\IEEEauthorblockA{} %
+}
+%
+%
+\maketitle%
+%
+
+
+\section*{Abstract}
+
+Immunity to multipath and noise: Data shall be provided for performance in multipath without noise, multipath with thermal noise and thermal noise only. The multipath models are discussed in the apppendix. The comparison will be conducted without antenna diversity. Multipath without noise: a curve of PER (Packet Error Rate) will be brought versus TRMS (the RMS delay spread). The lowest delay spread at which the PER=10\% (success probability drops to 90\%) will be used for comparison (it may happen that at higher TRMS some methods will exhibit an improvement, due to inherent diversity). Multipath with noise: set the TRMS to the point where PER=10\% was obtained. Draw a curve of PER versus average Eb/N0 (such curve should drop and then flatten at 10\%). The Eb/N0 at which the PER=20\% is obtained will be used for comparison. Thermal noise only: in this case there is no fading channel. Draw a curve of PER versus Eb/N0 and look for the point at which PER=10\%. The Eb/N0 at which the PER=10\% is obtained will be used for comparison
+
+
+\section*{ Index Terms}
+
+
+
+\section*{Important Contributions}
+
+This the first paper to use FIR channel for OFDM simulations.
+
+
+\section*{Impotant Citations}
+
+%\begin{itemize}
+
+
+%\end{itemize}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{../commonFiles/all}
+
+
+\end{document}

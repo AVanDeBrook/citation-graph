@@ -1,0 +1,233 @@
+%------------------------------------------------------------------
+%common definition file for Latex
+%------------------------------------------------------------------
+
+\def\bg{\Large}
+
+%------------------------------------------------------------------
+% Command for spacing:---------------------------------------------
+\def\spacingset#1{\def\baselinestretch{#1}\small\normalsize}
+\newcommand{\vs}{\vspace}
+\newcommand{\hs}{\hspace}
+
+%------------------------------------------------------------------
+% Notations used in linear circuits and electronic devices:--------
+\newcommand{\volt}{\, \mbox{V}}
+\newcommand{\amp}{\, \mbox{A}}
+\newcommand{\mamp}{\, \mbox{mA}}
+\newcommand{\ohm}{\, \Omega}
+\newcommand{\kohm}{\, \mbox{k}\Omega}
+\newcommand{\watt}{\, \mbox{W}}
+\newcommand{\kwatt}{\, \mbox{kW}}
+\newcommand{\farad}{\, \mbox{F}}
+\newcommand{\ufarad}{\, \mu\mbox{F}}
+\newcommand{\henry}{\, \mbox{H}}
+\newcommand{\mhenry}{\, \mbox{mH}}
+\newcommand{\uhenry}{\, \mu\mbox{H}}
+\newcommand{\rads}{\, \mbox{rads/s}}
+
+
+%------------------------------------------------------------------
+% Notations for typesetting 'problem' and 'sulution':--------------
+\newcommand{\prob}{\noindent {\bf Problem: }}
+\newcommand{\soln}{\vspace{0.2cm}\noindent {\bf Solution: }}
+\newcommand{\eop}{\hfill $\Box$}
+
+%------------------------------------------------------------------
+% Theorem-like environments (defs, lemmas numbered like Theorems):-
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{expl}{Example}[section]
+
+%------------------------------------------------------------------
+% Commands for numbering problems:---------------------------------
+\newcounter{parnum}
+\newcommand{\paraN}[1]{%
+    \noindent\refstepcounter{parnum}%
+    \rm{#1}\rm{\arabic{parnum}.}}
+\newcommand{\paraNb}[1]{%
+    \noindent\refstepcounter{parnum}%
+    \textbf{#1}\textbf{\arabic{parnum}.}}
+%    \makebox[\parindent][l]{\textbf{#1}\textbf{\arabic{parnum}.}}}
+%\setlength{\parindent}{2em}
+
+%------------------------------------------------------------------
+% Abbreviated commands for equations/listing:----------------------
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\be}{\begin{displaymath}}
+\newcommand{\ee}{\end{displaymath}}
+\newcommand{\ben}{\begin{equation}}
+\newcommand{\een}{\end{equation}}
+\newcommand{\bena}{\begin{eqnarray}}
+\newcommand{\eena}{\end{eqnarray}}
+\newcommand{\beqa}{\begin{eqnarray*}}
+\newcommand{\enqa}{\end{eqnarray*}}
+\newcommand{\f}{\frac}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\bdes}{\begin{description}}
+\newcommand{\edes}{\end{description}}
+\newcommand{\bt}{\begin{tabular}}
+\newcommand{\et}{\end{tabular}}
+\newcommand{\sort}{\rm sort \,}
+\newcommand{\ds}{\displaystyle}
+
+%------------------------------------------------------------------
+% Math symbols:----------------------------------------------------
+\newcommand{\tr}{\mathop{\rm tr}}
+\newcommand{\var}{\mathop{\rm var}}
+\newcommand{\cov}{\mathop{\rm cov}}
+\newcommand{\diag}{\mathop{\rm diag}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\ul}{\underline}
+\def\Pr{\mathop{\rm Pr}}
+\def\Re{\mathop{\rm Re}}
+\def\Im{\mathop{\rm Im}}
+\newcommand{\re}{{\rm Re} \, }
+\newcommand{\e}{{\rm E} \, }
+\newcommand{\p}{{\rm P} \, }
+\newcommand{\cn}{{\cal CN} \, }
+\newcommand{\n}{{\cal N} \, }
+\newcommand \Cset{{\cal C}}
+\newcommand \Rset{{\cal R}}
+\newcommand \Zset{{\cal Z}}
+\newcommand{\otheta}{\stackrel{\circ}{\theta}}
+\newcommand{\defeq}{\stackrel{\bigtriangleup}{=}}
+\newcommand{\oabf}{{\bf \breve{a}}}
+\newcommand{\odbf}{{\bf \breve{d}}}
+\newcommand{\oDbf}{{\bf \breve{D}}}
+\newcommand{\oAbf}{{\bf \breve{A}}}
+\renewcommand \vec{{\mbox{vec}}}
+\newcommand{\Acalbf}{\bf {\cal A}}
+\newcommand{\calZbf}{\mbox{\boldmath $\cal Z$}}
+\newcommand{\feop}{\hfill \rule{2mm}{2mm} \\}
+\newcommand{\Rnum}{{\mathbb R}}
+\newcommand{\Cnum}{{\mathbb C}}
+\newcommand{\Znum}{{\mathbb Z}}
+\newcommand{\Ccal}{{\cal C}}
+\newcommand{\Dcal}{{\cal D}}
+\newcommand{\Hcal}{{\cal H}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Rcal}{{\cal R}}
+\newcommand{\Zcal}{{\cal Z}}
+\newcommand{\Xcal}{{\cal X}}
+\newcommand{\zzbf}{{\bf 0}}
+\newcommand{\zebf}{{\bf 0}}
+%\newcommand{\gss}{\mathop{}\limits}
+\newcommand{\gs}{\mathop{\gss_<^>}\limits} %usage $$\gs_{H_1}^{H_0}$
+\newcommand{\circlambda}{\mbox{$\Lambda$
+             \kern-.88em\raise1.5ex
+             \hbox{$\scriptstyle{\circ}$}}\,}
+\def\submbox#1{_{\mbox{\footnotesize #1}}}
+\def\supmbox#1{^{\mbox{\footnotesize #1}}}
+
+\makeatletter
+\def\revddots{\mathinner{\mkern1mu\raise\p@
+\vbox{\kern7\p@\hbox{.}}\mkern2mu
+\raise4\p@\hbox{.}\mkern2mu\raise7\p@\hbox{.}\mkern1mu}} \makeatother
+
+%------------------------------------------------------------------
+% Bold face symbols:-----------------------------------------------
+\newcommand \thetabf{{\mbox{\boldmath$\theta$\unboldmath}}}
+\newcommand{\Phibf}{\mbox{${\bf \Phi}$}}
+\newcommand{\Psibf}{\mbox{${\bf \Psi}$}}
+\newcommand \alphabf{\mbox{\boldmath$\alpha$\unboldmath}}
+\newcommand \betabf{\mbox{\boldmath$\beta$\unboldmath}}
+\newcommand \gammabf{\mbox{\boldmath$\gamma$\unboldmath}}
+\newcommand \deltabf{\mbox{\boldmath$\delta$\unboldmath}}
+\newcommand \epsilonbf{\mbox{\boldmath$\epsilon$\unboldmath}}
+\newcommand \zetabf{\mbox{\boldmath$\zeta$\unboldmath}}
+\newcommand \etabf{\mbox{\boldmath$\eta$\unboldmath}}
+\newcommand \iotabf{\mbox{\boldmath$\iota$\unboldmath}}
+\newcommand \kappabf{\mbox{\boldmath$\kappa$\unboldmath}}
+\newcommand \lambdabf{\mbox{\boldmath$\lambda$\unboldmath}}
+\newcommand \mubf{\mbox{\boldmath$\mu$\unboldmath}}
+\newcommand \nubf{\mbox{\boldmath$\nu$\unboldmath}}
+\newcommand \xibf{\mbox{\boldmath$\xi$\unboldmath}}
+\newcommand \pibf{\mbox{\boldmath$\pi$\unboldmath}}
+\newcommand \rhobf{\mbox{\boldmath$\rho$\unboldmath}}
+\newcommand \sigmabf{\mbox{\boldmath$\sigma$\unboldmath}}
+\newcommand \taubf{\mbox{\boldmath$\tau$\unboldmath}}
+\newcommand \upsilonbf{\mbox{\boldmath$\upsilon$\unboldmath}}
+\newcommand \phibf{\mbox{\boldmath$\phi$\unboldmath}}
+\newcommand \varphibf{\mbox{\boldmath$\varphi$\unboldmath}}
+\newcommand \chibf{\mbox{\boldmath$\chi$\unboldmath}}
+\newcommand \psibf{\mbox{\boldmath$\psi$\unboldmath}}
+\newcommand \omegabf{\mbox{\boldmath$\omega$\unboldmath}}
+\newcommand \Sigmabf{\hbox{$\bf \Sigma$}}
+\newcommand \Upsilonbf{\hbox{$\bf \Upsilon$}}
+\newcommand \Omegabf{\hbox{$\bf \Omega$}}
+\newcommand \Deltabf{\hbox{$\bf \Delta$}}
+\newcommand \Gammabf{\hbox{$\bf \Gamma$}}
+\newcommand \Thetabf{\hbox{$\bf \Theta$}}
+\newcommand \Lambdabf{\hbox{$\bf \Lambda$}}
+\newcommand \Xibf{\hbox{\bf$\Xi$}}
+\newcommand \Pibf{\hbox{\bf$\Pi$}}
+\newcommand \abf{{\bf a}}
+\newcommand \bbf{{\bf b}}
+\newcommand \cbf{{\bf c}}
+\newcommand \dbf{{\bf d}}
+\newcommand \ebf{{\bf e}}
+\newcommand \fbf{{\bf f}}
+\newcommand \gbf{{\bf g}}
+\newcommand \hbf{{\bf h}}
+\newcommand \ibf{{\bf i}}
+\newcommand \jbf{{\bf j}}
+\newcommand \kbf{{\bf k}}
+\newcommand \lbf{{\bf l}}
+\newcommand \mbf{{\bf m}}
+\newcommand \nbf{{\bf n}}
+\newcommand \obf{{\bf o}}
+\newcommand \pbf{{\bf p}}
+\newcommand \qbf{{\bf q}}
+\newcommand \rbf{{\bf r}}
+\newcommand \sbf{{\bf s}}
+\newcommand \tbf{{\bf t}}
+\newcommand \ubf{{\bf u}}
+\newcommand \vbf{{\bf v}}
+\newcommand \wbf{{\bf w}}
+\newcommand \xbf{{\bf x}}
+\newcommand \ybf{{\bf y}}
+\newcommand \zbf{{\bf z}}
+\newcommand \rbfa{{\bf r}}
+\newcommand \xbfa{{\bf x}}
+\newcommand \ybfa{{\bf y}}
+\newcommand \Abf{{\bf A}}
+\newcommand \Bbf{{\bf B}}
+\newcommand \Cbf{{\bf C}}
+\newcommand \Dbf{{\bf D}}
+\newcommand \Ebf{{\bf E}}
+\newcommand \Fbf{{\bf F}}
+\newcommand \Gbf{{\bf G}}
+\newcommand \Hbf{{\bf H}}
+\newcommand \Ibf{{\bf I}}
+\newcommand \Jbf{{\bf J}}
+\newcommand \Kbf{{\bf K}}
+\newcommand \Lbf{{\bf L}}
+\newcommand \Mbf{{\bf M}}
+\newcommand \Nbf{{\bf N}}
+\newcommand \Obf{{\bf O}}
+\newcommand \Pbf{{\bf P}}
+\newcommand \Qbf{{\bf Q}}
+\newcommand \Rbf{{\bf R}}
+\newcommand \Sbf{{\bf S}}
+\newcommand \Tbf{{\bf T}}
+\newcommand \Ubf{{\bf U}}
+\newcommand \Vbf{{\bf V}}
+\newcommand \Wbf{{\bf W}}
+\newcommand \Xbf{{\bf X}}
+\newcommand \Ybf{{\bf Y}}
+\newcommand \Zbf{{\bf Z}}
+\newcommand \Omegabbf{{\bf \Omega}}
+\newcommand \Rssbf{{\bf R_{ss}}}
+\newcommand \Ryybf{{\bf R_{yy}}}
+
+\newcommand{\fs}{\hspace{0.07in}}   % \fs and \bs will not be used in
+\newcommand{\bs}{\hspace{-0.1in}}   % new docs.
+

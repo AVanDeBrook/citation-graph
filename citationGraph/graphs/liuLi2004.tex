@@ -1,0 +1,137 @@
+\documentclass[11pt,draftnofoot,onecolumn]{IEEEtran}
+
+\def\spacingset#1{\def\baselinestretch{#1}\small\normalsize}
+
+%\def\ninept{\def\baselinestretch{.95}\let\normalsize\small\normalsize}
+
+\setlength{\topmargin}{-0.4in}             % Move the top margin up with the negative value.
+\setlength{\textheight}{9.0in}                % Set the hight of the text.
+\setlength{\textwidth}{6.9in}               % Set the width of the text.
+\setlength{\oddsidemargin}{-0.2in}           % Set the odd side left margin; useful for the double-sided case.
+\setlength{\evensidemargin}{-0.2in}
+
+%\parskip=1pt
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{epsf}
+%\usepackage{psfig}
+\usepackage{graphicx}
+%\usepackage{showkeys}
+\input{../commonFiles/comdefs}
+
+
+\begin{document}
+
+\spacingset{1.5}
+
+
+\title{Parameter Estimation and Error Reduction for OFDM Based WLANs}
+%\ninept%
+%
+%\spacingset{1.127}
+\author{\IEEEauthorblockN{Jianhua Liu}
+\IEEEauthorblockA{Department of Electrical and Computer Engineering\\
+P.O. Box 116130\\
+University of Florida\\
+Gainesville, FL 32611-6130} %
+\and \IEEEauthorblockN{Jian Li}
+\IEEEauthorblockA{Department of Electrical and Computer Engineering\\
+P.O. Box 116130\\
+University of Florida\\
+Gainesville, FL 32611-6130}%
+}
+%
+%
+\maketitle%
+%
+
+
+\section*{Abstract}
+
+We consider parameter estimation and error reduction for
+orthogonal frequency-division multiplexing 
+(OFDM) based high-speed
+wireless local area networks (WLANs).
+We devise or select algorithms that can provide benefit to the 
+{\em overall} system performance and can be efficiently
+implemented in real-time. In particular,
+first, we give a channel model which 
+is especially useful for assessing
+the channel parameter estimation methods devised for OFDM based WLANs. 
+Second, we provide  
+a sequential method for the estimation 
+of carrier frequency offset (CFO), symbol timing, and channel response, 
+by exploiting the structure of the packet
+preamble specified by the IEEE 802.11a standard.
+Finally, %we account for the aforementioned various errors: 
+to correct the residue CFO induced phase error using the pilot tones, 
+we consider maximum-likelihood phase tracking and 
+least-squares phase fitting approaches;
+to improve the channel estimation accuracy using
+the decoded data, we present a semi-blind
+channel estimation method; 
+to mitigate the sampling clock induced 
+time delay error, we provide a 
+sampling clock synchronization approach 
+that obviates the need of an automatic frequency control
+clock recovery circuit.
+The overall system performance of using our algorithms is demonstrated 
+via several numerical examples.
+
+
+\section*{ Index Terms}
+
+OFDM, WLAN, channel model, 
+symbol timing, carrier synchronization,
+channel estimation, pilot tones, 
+sampling clock synchronization, WLAN standards.
+
+
+\section*{Important Contributions}
+
+We have devised or selected channel parameter estimation and error 
+reduction algorithms to improve the overall system performance
+for the OFDM based WLANs and to be readily implemented in real-time. 
+In particular, first, we have given a channel model which can be used to
+characterize the true channels for the OFDM signaling.
+Second, by exploiting the structure of the packet
+preamble specified by the IEEE 802.11a standard, 
+we have provided a sequential method for the estimation 
+of CFO, symbol timing, and channel response.
+Unlike some of the existing channel parameter estimation methods, 
+our method works well for the true channels and is 70 times more 
+efficient than an existing method.
+Finally, to correct the CPE
+using the pilot tones, we have considered ML phase tracking and 
+LS phase fitting approaches. The proper phase fitting
+can yield a gain of up to 1.2 dB. 
+Moreover, a semi-blind
+channel estimation method has been presented to improve
+the channel estimation accuracy, which results in an additional
+gain of up to 1.5 dB. 
+Furthermore, to correct the sampling clock error, we have provided a 
+sampling clock synchronization approach that avoids the use
+of an AFC circuit. The algorithms given herein
+can be readily extended to the case of multiple receive antennas.
+We are currently implementing our algorithms
+on the DSP hardware.
+
+
+\section*{Impotant Citations}
+
+\begin{itemize}
+
+\item \cite{Chayat1997} proposed an FIR (finite impulse response)
+filter channel model for the simulation of the time-dispersive fading channels for the
+OFDM-based communication systems.
+
+
+\end{itemize}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{../commonFiles/all}
+
+
+\end{document}
