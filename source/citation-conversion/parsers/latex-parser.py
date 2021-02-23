@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 from pylatexenc.latexwalker import *
 
 """
@@ -17,28 +18,26 @@ class LatexParser(object):
 		"bibliography": [],
 		"author": [],
 		# "section": [],
-		# "cite": [],
-		# "ref": [],
-		# "label": []
+		"cite": [],
 	}
 
 	def __init__(self, latex_str):
-		latex_walker = LatexWalker(latex_str)
-		(self.nodes, _, _) = latex_walker.get_latex_nodes()
+		self.latex_walker = LatexWalker(latex_str)
+		(self.nodes, _, _) = self.latex_walker.get_latex_nodes()
 
 		try:
 			for node in self.nodes:
 				if node.isNodeType(LatexEnvironmentNode):
 					self.document_node_pos = node.pos
-					(self.document_environment, _, _) = latex_walker.get_latex_environment(node.pos, environmentname="document")
+					(self.document_environment, _, _) = self.latex_walker.get_latex_environment(node.pos, environmentname="document")
 		except LatexWalkerParseError:
-			print(LatexWalkerParseError.msg)
+			raise Exception("Could not find \\begin\{document\} symbol")
 
 		for node in self.document_environment.nodelist:
 			if node.isNodeType(LatexMacroNode) and node.macroname in self.document_macros.keys():
 				self.document_macros[node.macroname].append(node)
 
-	def get_document_environemtn_nodes(self):
+	def get_document_environment_nodes(self):
 		try:
 			return self.document_environment.nodelist
 		except Exception:
@@ -87,15 +86,45 @@ class LatexParser(object):
 
 		return author_info
 
+	def get_citation_list(self):
+		citation_list = []
+
+		for citation in self.document_macros["cite"]:
+			for arg in citation.nodeargd.argnlist:
+				if arg != None and arg.isNodeType(LatexGroupNode):
+					for node in arg.nodelist:
+						if node.isNodeType(LatexCharsNode) and not node.chars in citation_list:
+							citation_list.append(node.chars)
+
+		return citation_list
+
+	# I'm not religious, but may god forgive me for the mess I have created
+	def get_abstract(self):
+		for node in self.document_environment.nodelist:
+			if node.isNodeType(LatexGroupNode):
+				for subnode in node.nodelist:
+					if subnode.isNodeType(LatexCharsNode) and subnode.chars.lower() == "abstract":
+						(expr, _, _) = self.latex_walker.get_latex_expression(pos=(subnode.pos + subnode.len + 1))
+						while not expr.isNodeType(LatexCharsNode):
+							(expr, _, _) = self.latex_walker.get_latex_expression(pos=(expr.pos + expr.len))
+						(abstract, _, _) = self.latex_walker.get_latex_nodes(pos=expr.pos, read_max_nodes=1)
+						return abstract[0].chars.replace("\n","")
+
+	def get_index_terms(self):
+		pass
+
+	def _print_dict_info(self):
+		for key, values in self.document_macros.items():
+			print("--------\n%s\n--------" % key)
+			for v in values:
+				print(v, end="\n\n")
+			print("\n\n\n")
+
 if __name__ == "__main__":
 	lp = LatexParser(open("citationGraph/ourPapers/channelModel/ANoteOnChannelModel_TVT.tex").read())
 
-	# for key, values in lp.document_macros.items():
-	# 	print("--------\n%s\n--------" % key)
-	# 	for v in values:
-	# 		print(v, end="\n\n")
-	# 	print("\n\n\n")
-
+	print("Abstract:\t", lp.get_abstract())
 	print("Title:\t", lp.get_document_title())
 	print("Bib:\t", lp.get_bibtex_file())
 	print("Author:\t", lp.get_author_info())
+	print("Cite:\t", lp.get_citation_list())
