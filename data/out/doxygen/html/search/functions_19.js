@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['zangwill1967',['Zangwill1967',['../cfordoxygen_8c.html#ad3ab5b9bcbd8212b2b8f44ad8fd2fac5',1,'cfordoxygen.c']]],
+  ['zangwill1969',['Zangwill1969',['../cfordoxygen_8c.html#a69bd9b7e6ff53ec1fcb524336d89f4a6',1,'cfordoxygen.c']]],
+  ['zebkerfarrsalazar1994',['ZebkerFarrSalazar1994',['../cfordoxygen_8c.html#a4784df5b122a35a2afcb86174a258586',1,'cfordoxygen.c']]],
+  ['zebkergoldstein1986',['ZebkerGoldstein1986',['../cfordoxygen_8c.html#a5f00c948af1dfe2faf6ebdd006f373de',1,'cfordoxygen.c']]],
+  ['zebkermadsenmartin1992',['ZebkerMadsenMartin1992',['../cfordoxygen_8c.html#a690b37053a60d300119ab6505f99536e',1,'cfordoxygen.c']]],
+  ['zebkerzyl1991',['ZebkerZyl1991',['../cfordoxygen_8c.html#a8f43592ab47da3ac254a56a9393fcf33',1,'cfordoxygen.c']]],
+  ['zeirafriedlander1996',['ZeiraFriedlander1996',['../cfordoxygen_8c.html#a6190755a765accab1893b813a906f457',1,'cfordoxygen.c']]],
+  ['zhangheguo1996',['ZhangHeGuo1996',['../cfordoxygen_8c.html#a1b6f5a770fe582151e608f10bbfb5fce',1,'cfordoxygen.c']]],
+  ['zhangzhuangguo1997',['ZhangZhuangGuo1997',['../cfordoxygen_8c.html#a17b6cbd004f98275f95c3fa81d087ab9',1,'cfordoxygen.c']]],
+  ['zhenglimiller1997',['ZhengLiMiller1997',['../cfordoxygen_8c.html#a09253150ab52e8d3c3e14e11341b8357',1,'cfordoxygen.c']]],
+  ['zhougiannakis2001',['ZhouGiannakis2001',['../cfordoxygen_8c.html#a689fd8aff76d449f34888f14cbf0d102',1,'cfordoxygen.c']]],
+  ['zhouhabershi1990',['ZhouHaberShi1990',['../cfordoxygen_8c.html#ad2fef4fcd351dd476531494083441bf5',1,'cfordoxygen.c']]],
+  ['zhukimanderson1997',['ZhuKimAnderson1997',['../cfordoxygen_8c.html#ab52336437117970d77418d46fda69a2e',1,'cfordoxygen.c']]],
+  ['ziskindwax1988',['ZiskindWax1988',['../cfordoxygen_8c.html#a70e91ffce8eaa27ed55deb71f3223697',1,'cfordoxygen.c']]],
+  ['ziskindwax1990',['ZiskindWax1990',['../cfordoxygen_8c.html#abcfea07580153d7ea646b7e97acc9983',1,'cfordoxygen.c']]],
+  ['zoltowski1992',['Zoltowski1992',['../cfordoxygen_8c.html#ac43c16a57dc73c236093b7245bc4000b',1,'cfordoxygen.c']]],
+  ['zoltowskistavrinides1989',['ZoltowskiStavrinides1989',['../cfordoxygen_8c.html#aa450a374327fae0cabd3719e268d5fec',1,'cfordoxygen.c']]],
+  ['zouwu1995',['ZouWu1995',['../cfordoxygen_8c.html#a7fda1a775a37ac7b13ab59aa6580ba6d',1,'cfordoxygen.c']]],
+  ['zyweckbogner1994',['ZyweckBogner1994',['../cfordoxygen_8c.html#aef0f82676ca75e2cc4115710c16b3516',1,'cfordoxygen.c']]]
+];
