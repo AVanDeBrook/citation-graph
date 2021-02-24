@@ -53,6 +53,7 @@ var searchData=
   ['moonshortrushforth1991a',['MoonShortRushforth1991a',['../cfordoxygen_8c.html#afd172d9c7b009b321f1c40433d89b20d',1,'cfordoxygen.c']]],
   ['moore1996',['Moore1996',['../cfordoxygen_8c.html#a9895fc7b68de0fe865f5cc5f5f78ac7f',1,'cfordoxygen.c']]],
   ['moose1994',['Moose1994',['../cfordoxygen_8c.html#ae263b8dd506d8b02f730353b93f463b3',1,'cfordoxygen.c']]],
+  ['mora1999',['Mora1999',['../example_8c.html#af0f16bb600d56d5e30f28d6ef0d003cc',1,'example.c']]],
   ['morellimengali1999',['MorelliMengali1999',['../cfordoxygen_8c.html#a2755b5a6b0ef02c26e8e67332de20d40',1,'cfordoxygen.c']]],
   ['morfkailathljung1976',['MorfKailathLjung1976',['../cfordoxygen_8c.html#a732b5f3aefdc49dc4cc34f72ed6d3138',1,'cfordoxygen.c']]],
   ['mott1986',['Mott1986',['../cfordoxygen_8c.html#ad19bccd49a5787be7437d7d0b9663f05',1,'cfordoxygen.c']]],
