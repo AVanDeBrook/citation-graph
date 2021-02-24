@@ -24,7 +24,7 @@ Use the following script to download the dependencies listed above
 ```bash
 pip install bibtexparser re
 pip install doxygen
-pip install dot
+pip install graphviz
 ```
 
 Non-Python Dependencies:
