@@ -1809,7 +1809,7 @@ void DeGraaf1998(void) {
 /*!
 \param Title WiMAX Tutorial
 \param Year Unavailable
-\param Author L.~Dell{ï¿½}Anna
+\param Author L.~Dell{’}Anna
 */
 void DellAnna2006(void) {
 };
@@ -2102,7 +2102,7 @@ void FalconerLjung1978(void) {
 /*!
 \param Title Synthetic Aperture Imaging for Small Scale Systems
 \param Year 1995
-\param Author M.~Karaman and P.-C.~Li and M.~O{ï¿½}Donnell
+\param Author M.~Karaman and P.-C.~Li and M.~O{’}Donnell
 */
 void KaramanLiODonnell1995(void) {
 };

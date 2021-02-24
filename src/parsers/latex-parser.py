@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+
 from pylatexenc.latexwalker import *
 
 """
-Main class for the LaTex parsing routines.
+Main class for the latex parsing routines.
 
 Serves as more or less of a wrapper for the pylatexenc LaTeX parser API.
 
@@ -120,7 +121,7 @@ class LatexParser(object):
 			print("\n\n\n")
 
 if __name__ == "__main__":
-	lp = LatexParser(open("data/paper/channelModel/ANoteOnChannelModel_TVT.tex").read())
+	lp = LatexParser(open("citationGraph/ourPapers/channelModel/ANoteOnChannelModel_TVT.tex").read())
 
 	print("Abstract:\t", lp.get_abstract())
 	print("Title:\t", lp.get_document_title())

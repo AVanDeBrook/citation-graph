@@ -30,7 +30,7 @@ class BibtexParser(object):
 
 		self.dict_entries = self.parse_entries(self.bib_entries)
 		cstrings = self.create_cstrings()
-		cfile = open('data/out/c/myc.c', 'w')
+		cfile = open('data/out/c/cfordoxygen.c', 'w')
 		cfile.writelines(cstrings)
 		cfile.close()
 
