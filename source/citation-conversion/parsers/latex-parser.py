@@ -22,6 +22,9 @@ class LatexParser(object):
 	}
 
 	def __init__(self, latex_str):
+		"""
+		Constructor to initialize the class fields and latex parser.
+		"""
 		self.latex_walker = LatexWalker(latex_str)
 		(self.nodes, _, _) = self.latex_walker.get_latex_nodes()
 
@@ -38,15 +41,25 @@ class LatexParser(object):
 				self.document_macros[node.macroname].append(node)
 
 	def get_document_environment_nodes(self):
+		"""
+		Returns the list of all nodes in the 'document' environment.
+		E.g. all nodes between "\begin{document}" and "\end{document}"
+		"""
 		try:
 			return self.document_environment.nodelist
 		except Exception:
 			raise Exception("Could not find document nodes")
 
 	def get_latex_nodes(self):
+		"""
+		Returns all nodes in the latex file.
+		"""
 		return self.nodes
 
 	def get_document_title(self):
+		"""
+		Finds and returns the document title, if specified in the file.
+		"""
 		title = ""
 
 		for title_node in self.document_macros["title"]:
@@ -58,6 +71,9 @@ class LatexParser(object):
 		return title.strip()
 
 	def get_bibtex_file(self):
+		"""
+		Returns a list of possible bibtex files to parse citations and bibliographies from.
+		"""
 		possible_files = []
 
 		for index in self.document_macros["bibliography"]:
@@ -68,6 +84,9 @@ class LatexParser(object):
 		return possible_files
 
 	def get_author_info(self):
+		"""
+		Returns a list of author information that was found in the document.
+		"""
 		author_info = []
 
 		for author in self.document_macros["author"]:
@@ -87,6 +106,9 @@ class LatexParser(object):
 		return author_info
 
 	def get_citation_list(self):
+		"""
+		Returns a list of bibtex IDs that were cited within the document.
+		"""
 		citation_list = []
 
 		for citation in self.document_macros["cite"]:
@@ -100,6 +122,9 @@ class LatexParser(object):
 
 	# I'm not religious, but may god forgive me for the mess I have created
 	def get_abstract(self):
+		"""
+		Attempst to find and return the abstract from the latex file.
+		"""
 		for node in self.document_environment.nodelist:
 			if node.isNodeType(LatexGroupNode):
 				for subnode in node.nodelist:
@@ -111,9 +136,17 @@ class LatexParser(object):
 						return abstract[0].chars.replace("\n","")
 
 	def get_index_terms(self):
-		pass
+		# There is no easy way to parse the index terms for some reason, so it will not be finished in sprint 1.
+		"""
+		Not implemented
+		"""
+		raise NotImplementedError()
+
 
 	def _print_dict_info(self):
+		"""
+		Prints the raw data from the document_macros dictionary.
+		"""
 		for key, values in self.document_macros.items():
 			print("--------\n%s\n--------" % key)
 			for v in values:
@@ -123,7 +156,8 @@ class LatexParser(object):
 if __name__ == "__main__":
 	lp = LatexParser(open("citationGraph/ourPapers/channelModel/ANoteOnChannelModel_TVT.tex").read())
 
-	print("Abstract:\t", lp.get_abstract())
+	# print("Abstract:\t", lp.get_abstract()) # commented just because abstracts are usually very long
+	# print("Index terms:\t", lp.get_index_terms()) # not implemented
 	print("Title:\t", lp.get_document_title())
 	print("Bib:\t", lp.get_bibtex_file())
 	print("Author:\t", lp.get_author_info())
