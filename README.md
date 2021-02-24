@@ -16,11 +16,15 @@ The following dependencies are needed:
 
 Python v3.x Dependencies:
 * `bibtexparser`
+* `dot`
+* `doxygen`
 * `re` (if not provided by default w/ python 3.x)
 
 Use the following script to download the dependencies listed above
 ```bash
 pip install bibtexparser re
+pip install doxygen
+pip install dot
 ```
 
 Non-Python Dependencies:
