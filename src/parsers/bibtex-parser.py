@@ -102,7 +102,7 @@ class BibtexParser(object):
 		cstring = cstring.replace("%description%", entry["author"])
 		return cstring
 
-	# def _create_author_param_string(self, entry):
+	# def _create_author_list(self, entry):
 	# 	authors = entry["author"].split("and")
 	# 	for i in range(len(authors)):
 	# 		# I am too lazy to make this read any better. It just works.
