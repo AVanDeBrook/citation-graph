@@ -10,9 +10,14 @@ Some of the functions in this class remain unfinished until we know the specific
 See 'main' for some examples of usage.
 """
 class BibtexParser(object):
-	CSTRING_REF = "void %function_name%(%parameters%);"
-	YEAR_REF = re.compile("[0-9]+")
-	YEAR_REF_1900_2099 = re.compile("^(19|20)\d{2}$")
+	BEGIN_COMMENT = "\n/*!"
+	PARAM = "\n\param %param_name% %description%"
+	END_COMMENT = "\n*/"
+	METHOD_SIGNATURE = "\nvoid %function_name%(void) {"
+	CALL_METHOD = "\n    %function_name%();"
+	CLOSE_METHOD = "\n};"
+	YEAR = re.compile("[0-9]+")
+	YEAR_1900_2099 = re.compile("^(19|20)\d{2}$")
 
 	"""
 	Simple class constructor.
@@ -24,6 +29,10 @@ class BibtexParser(object):
 			self.bib_entries = bibtexparser.load(bibtex_file)
 
 		self.dict_entries = self.parse_entries(self.bib_entries)
+		cstrings = self.create_cstrings()
+		cfile = open('data/out/c/myc.c', 'w')
+		cfile.writelines(cstrings)
+		cfile.close()
 
 	"""
 	Since there are some specific fields that we want/need to create the C-like
@@ -61,43 +70,47 @@ class BibtexParser(object):
 	def create_cstrings(self):
 		cstrings = []
 
-		for dict in self.dict_entries:
-			cstring = CSTRING_REF.replace("%function_name%", dict["ID"])
-
-			cstring = cstring.replace("%parameters%", "void")#_assemble_param_string(dict['author'], dict['year']))
-			cstrings.append(cstring)
+		for entry in self.dict_entries:
+			cstrings.append(self.BEGIN_COMMENT)
+			cstrings.append(self._create_title_param_string(entry))
+			cstrings.append(self._create_year_param_string(entry))
+			cstrings.append(self._create_author_param_string(entry))
+			cstrings.append(self.END_COMMENT)
+			cstrings.append(self.METHOD_SIGNATURE.replace("%function_name%", entry["ID"]))
+			# for citations in entry:
+			# 	cstrings.append(self.CALL_METHOD.replace("%function_name%", citations["ID"]))
+			cstrings.append(self.CLOSE_METHOD)
+			cstrings.append("\n")
 
 		return cstrings
 
-	def _assemble_param_string(self, authors, year):
-		params = []
-		author_str = _create_author_string(authors)
-		year_str = _create_year_string(year)
+	def _create_title_param_string(self, entry):
+		cstring = self.PARAM.replace("%param_name%", "Title")
+		cstring = cstring.replace("%description%", entry["title"])
+		return cstring
 
-		for author in author_str:
-			params.append(author)
-
-		params.append(year_str)
-
-		return ", ".join(params)
-
-	def _create_author_string(self, author_str):
-		authors = author_str.split("and")
-
-		for i in range(len(authors)):
-			# I am too lazy to make this read any better. It just works.
-			authors[i] = "CAuthor " + re.sub(r"[\\s\\.~{}\\\"\\']+", "", authors[i]).replace(" ", "").replace("\uFFFD", "")
-
-		return authors
-
-	def _create_year_string(self, year_str):
-		if YEAR_REF.fullmatch(year_str):
-			return "CYear " + year_str
+	def _create_year_param_string(self, entry):
+		cstring = self.PARAM.replace("%param_name%", "Year")
+		if self.YEAR_1900_2099.fullmatch(entry["year"]):
+			cstring = cstring.replace("%description%", entry["year"])
 		else:
-			return "CYear Unavilable"
+			cstring = cstring.replace("%description%", "Unavailable")
+		return cstring
+	
+	def _create_author_param_string(self, entry):
+		cstring = self.PARAM.replace("%param_name%", "Author")
+		cstring = cstring.replace("%description%", entry["author"])
+		return cstring
+
+	# def _create_author_param_string(self, entry):
+	# 	authors = entry["author"].split("and")
+	# 	for i in range(len(authors)):
+	# 		# I am too lazy to make this read any better. It just works.
+	# 		authors[i] = "CAuthor " + re.sub(r"[\\s\\.~{}\\\"\\']+", "", authors[i]).replace(" ", "").replace("\uFFFD", "")
+	# 	return authors
 
 def main():
-	bibtex_parser = BibtexParser('data/common/all.bib')
+	bibtex_parser = BibtexParser('data/commonFiles/all.bib')
 
 if __name__ == "__main__":
 	main()
