@@ -16,15 +16,16 @@ The following dependencies are needed:
 
 Python v3.x Dependencies:
 * `bibtexparser`
-* `dot`
-* `doxygen`
+* `pylatexenc`
 * `re` (if not provided by default w/ python 3.x)
+
+System Dependencies:
+* `graphviz`
+* `doxygen`
 
 Use the following script to download the dependencies listed above
 ```bash
-pip install bibtexparser re
-pip install doxygen
-pip install graphviz
+pip install pylatexenc bibtexparser re
 ```
 
 Non-Python Dependencies:
