@@ -9,3 +9,6 @@
 
 # VSCode workspace/project settings
 .vscode
+
+__pycache__/
+**/__pycache__/
