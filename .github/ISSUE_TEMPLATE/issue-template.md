@@ -1,7 +1,7 @@
 ---
 name: Issue template
 about: The purpose of this issue template is to please the ERAU senior design gods.
-title: NEW ISSUE
+title: [NEW ISSUE]
 labels: ''
 assignees: ''
 
