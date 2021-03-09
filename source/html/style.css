@@ -18,7 +18,6 @@ background-position: center;
 	background-color: #FF80A8;
 	border: 1px solid black;
 	color: black;
-	padding: 10px 24 px;
-	float: left;
+	float: left; /*buttons side by side*/
 }
 
