@@ -4,7 +4,7 @@ import os, webbrowser
 # Mostly for testing purposes, comment/uncomment lines for actions needed
 
 # generate the C file for Doxygen
-# parse_and_write_c("data/paper/channelModel/ANoteOnChannelModel_TVT.tex")
+# TODO use writer
 
 # generate the doxygen configuration file
 # os.system("doxygen -g ../data/out/doxygen/config/Doxyfile")
@@ -15,11 +15,8 @@ import os, webbrowser
 # open HTML in browser
 # webbrowser.open("../data/out/doxygen/html/index.html")
 
-def parse_and_write_c(self, paper):
-    null
-
 def main():
-    print("running")
+    print("TEST")
 
 if __name__ == "__main__":
 	main()
