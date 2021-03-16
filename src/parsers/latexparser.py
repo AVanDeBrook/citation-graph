@@ -2,13 +2,8 @@
 from pylatexenc.latexwalker import *
 
 """
-Main class for the latex parsing routines.
-
+Main class for the LaTex parsing routines.
 Serves as more or less of a wrapper for the pylatexenc LaTeX parser API.
-
-Add functions here as needed to work around the weird logic of the API.
-
-See 'main' for some examples of usage.
 """
 class LatexParser(object):
 
@@ -20,11 +15,11 @@ class LatexParser(object):
 		"cite": [],
 	}
 
-	def __init__(self, latex_str):
-		"""
-		Constructor to initialize the class fields and latex parser.
-		"""
-		self.latex_walker = LatexWalker(latex_str)
+	"""
+	Constructor to initialize the class fields and latex parser.
+	"""
+	def __init__(self, latex_file):
+		self.latex_walker = LatexWalker(open(latex_file).read())
 		(self.nodes, _, _) = self.latex_walker.get_latex_nodes()
 
 		try:
