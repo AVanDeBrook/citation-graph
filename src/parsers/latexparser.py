@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from pylatexenc.latexwalker import *
+from os import path
 
 """
 Main class for the LaTex parsing routines.
@@ -19,6 +20,7 @@ class LatexParser(object):
 	Constructor to initialize the class fields and LaTex parser.
 	"""
 	def __init__(self, latex_file):
+		self.id = path.splitext(path.basename(latex_file))[0]
 		self.latex_walker = LatexWalker(open(latex_file).read())
 		(self.nodes, _, _) = self.latex_walker.get_latex_nodes()
 
@@ -127,9 +129,6 @@ class LatexParser(object):
 						if node.isNodeType(LatexCharsNode) and not node.chars in citation_list:
 							citation_list.append(node.chars)
 
-		# if (len(citation_list) == 0):
-		# 	return [self.STR_UNAVAILABLE]
-
 		return citation_list
 
 	# I'm not religious, but may god forgive me for the mess I have created
@@ -177,15 +176,14 @@ class LatexParser(object):
 Example usage
 """
 def main():
-	# TODO make latexparser and cwriter handle more than one LaTex file
-	# lp = LatexParser("data/paper/channelModel/ANoteOnChannelModel_TVT.tex")
 	lp = LatexParser("data/graph/liu2008.tex")
 	# lp._print_dict_info()
+	print("ID:\t", lp.id)
+	print("Title:\t", lp.get_document_title())
+	print("Author:\t", lp.get_author_info())
 	# print("Abstract:\t", lp.get_abstract()) # commented out just because abstracts are usually very long
 	# print("Index terms:\t", lp.get_index_terms()) # not implemented
-	# print("Title:\t", lp.get_document_title())
-	# print("Bib:\t", lp.get_bibtex_file())
-	# print("Author:\t", lp.get_author_info())
+	print("Bib:\t", lp.get_bibtex_file())
 	print("Cite:\t", lp.get_citation_list())
 
 if __name__ == "__main__":
