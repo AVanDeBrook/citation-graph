@@ -59,8 +59,8 @@ def main():
 		"last accessed",
 		"address"
 		}
-	bibtex_parser = BibtexParser('data/commonFiles/all.bib', BIB_KEYS)
-	print(bibtex_parser.dict_entries)
+	bp = BibtexParser('data/commonFiles/all.bib', BIB_KEYS)
+	print(bp.dict_entries)
 
 if __name__ == "__main__":
 	main()

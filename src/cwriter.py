@@ -36,9 +36,10 @@ class CWriter(object):
 	Class constructor. Uses the BibtexParser and LatexParser and writes a C file that can later be processed by Doxygen.
 	"""
 	def __init__(self, bib_file, tex_file, out_file):
+		# TODO make latexparser and cwriter handle more than one LaTex file
 		bibtex_parser = BibtexParser(bib_file, self.BIB_KEYS)
 		latex_parser = LatexParser(tex_file)
-		cstrings = self.create_cstrings(bibtex_parser.dict_entries)
+		cstrings = self.create_cstrings(bibtex_parser.dict_entries, latex_parser)
 		cfile = open(out_file, 'w')
 		cfile.writelines(cstrings)
 		cfile.close()
@@ -46,10 +47,12 @@ class CWriter(object):
 	"""
 	Assembles the results of the BibTex and LaTex parsers into C-like function strings.
 	"""
-	def create_cstrings(self, bib_dicts):
+	def create_cstrings(self, bib_dicts, latex_parser):
 		cstrings = []
 
 		for bib_dict in bib_dicts:
+
+			# param comments aka paper attributes
 			cstrings.append(self.STR_BEGIN_COMMENT)
 			for key in self.BIB_KEYS:
 				if (key == "ID"):
@@ -61,12 +64,21 @@ class CWriter(object):
 						cstrings.append(self._create_param_string(key.title(), self.STR_UNAVAILABLE))
 				else:
 					cstrings.append(self._create_param_string(key.title(), bib_dict[key]))
+			# TODO if (latexid == bib_dict['ID']):
+			cstrings.append(self._create_param_string("Title(LaTex)", latex_parser.get_document_title()))
+			cstrings.append(self._create_param_string("AuthorInfo", ', '.join(latex_parser.get_author_info())))
+			cstrings.append(self._create_param_string("Abstract", latex_parser.get_abstract()))
+			cstrings.append(self._create_param_string("BibliographyFiles", ', '.join(latex_parser.get_bibtex_file())))
 			cstrings.append(self.STR_END_COMMENT)
+
+			# method signature aka paper id
 			cstrings.append(self.STR_METHOD_SIGNATURE.replace("%function_name%", bib_dict["ID"]))
-            # TODO use latex_parser for citations
-			# for citation in citations:
-			# 	cstrings.append(self.CALL_METHOD.replace("%function_name%", citation["ID"]))
-			cstrings.append(self.STR_CALL_METHOD.replace("%function_name%", 'somePaper'))
+
+			# call methods aka references to other papers
+			# TODO if (latexid == bib_dict['ID']):
+			for citation_id in latex_parser.get_citation_list():
+				cstrings.append(self.STR_CALL_METHOD.replace("%function_name%", citation_id))
+			
 			cstrings.append(self.STR_CLOSE_METHOD)
 			cstrings.append("\n")
 
@@ -81,6 +93,7 @@ class CWriter(object):
 Example usage
 """
 def main():
+	# TODO make latexparser and cwriter handle more than one LaTex file
 	cwriter = CWriter(
         'data/commonFiles/all.bib',
         'data/paper/channelModel/ANoteOnChannelModel_TVT.tex',
