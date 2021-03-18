@@ -34,6 +34,12 @@ class LatexParser(object):
 			if node.isNodeType(LatexMacroNode) and node.macroname in self.document_macros.keys():
 				self.document_macros[node.macroname].append(node)
 
+		for node in self.document_environment.nodelist:
+			if node.isNodeType(LatexEnvironmentNode):
+				for macro in node.nodelist:
+					if macro.isNodeType(LatexMacroNode) and macro.macroname in self.document_macros.keys():
+						self.document_macros[macro.macroname].append(macro)
+
 	def get_document_environment_nodes(self):
 		"""
 		Returns the list of all nodes in the 'document' environment.
@@ -145,7 +151,7 @@ class LatexParser(object):
 
 		if (len(abst) == 0):
 			return self.STR_UNAVAILABLE
-		
+
 		return abst
 
 	def get_index_terms(self):
@@ -172,13 +178,14 @@ Example usage
 """
 def main():
 	# TODO make latexparser and cwriter handle more than one LaTex file
-	lp = LatexParser("data/paper/channelModel/ANoteOnChannelModel_TVT.tex")
+	# lp = LatexParser("data/paper/channelModel/ANoteOnChannelModel_TVT.tex")
+	lp = LatexParser("data/graph/liu2008.tex")
 	# lp._print_dict_info()
 	# print("Abstract:\t", lp.get_abstract()) # commented out just because abstracts are usually very long
 	# print("Index terms:\t", lp.get_index_terms()) # not implemented
-	print("Title:\t", lp.get_document_title())
-	print("Bib:\t", lp.get_bibtex_file())
-	print("Author:\t", lp.get_author_info())
+	# print("Title:\t", lp.get_document_title())
+	# print("Bib:\t", lp.get_bibtex_file())
+	# print("Author:\t", lp.get_author_info())
 	print("Cite:\t", lp.get_citation_list())
 
 if __name__ == "__main__":
