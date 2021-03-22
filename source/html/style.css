@@ -1,4 +1,4 @@
-
+/* HOME PAGE EDITING */
 .btn-group button{
 	background-color:grey;
 	font-size: 20px;
@@ -37,32 +37,64 @@
 .btn2-group button:hover{
 	background-color:ivory;
 }
+body#home{
+	background-image: url(img/Background.PNG);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
 
-img{
+.homeimg{
 	display: block;
 	margin-left: 80px;
 }
 
-#h3-aboutpage{
-	color: black;
-	text-indent: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 130px;
-	font-size: 30px;
-	font-family: "Goudy Old Style", serif;
-	font-weight: bold;
-	text-align: center;
-}
-
-h3{
+.homeH3{
 	font-family: "Goudy Old Style", serif;
 	color: white;
 	font-weight: bolder;
 	font-size:40px;
 	margin-left: 365px;
 }
+/* ABOUT PAGE EDITING */
+body#about{
+	background-image: url(img/aboutPageBackground.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+#h3-aboutpage{
+	color: black;
+	text-indent: 30px;
+	font-size: 30px;
+	font-family: "Goudy Old Style", serif;
+	font-weight: bold;
+	text-align: center;
+}
 
+#p-aboutpage{
+	color: black;
+	text-indent: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	font-size: 20px;
+	font-family: "Goudy Old Style", serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.aboutimg{
+	display: block;
+	width: 100%; 
+	height: 400px;
+}
+
+/* CONTACT PAGE EDITING */
 #h3-contactpage{
 	color: black;
 	text-indent: 30px;
@@ -74,17 +106,6 @@ h3{
 	font-weight: bold;
 	text-align: center;
 }
-#p-aboutpage{
-	color: white;
-	text-indent: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0;
-	font-size: 20px;
-	font-family: "Goudy Old Style", serif;
-	font-weight: bold;
-	text-align: center;
-}
 
 table, th, td{
  border: 1px solid black;
@@ -92,13 +113,5 @@ table, th, td{
 }
 th, td {
 	padding: 10px;
-}
-body {
-	background-image: url(img/Background.PNG);
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
 }
 
