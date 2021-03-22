@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Citation Graph</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	</head>
+	<body>
+		<div class="wrapper">
+			<section class="btn-group" style="width:100%">
+				<a href="/search">
+					<button type="button" style="width:33%">Look Up Paper</button>
+				</a>
+				<a href="{{ url_for('static', filename='html/contact.html') }}">
+					<button type="button" style="width:33%">Contact</button>
+				</a>
+				<a href="{{ url_for('static', filename='html/about.html') }}">
+					<button type="button" style="width:33%">About</button>
+				</a>
+				<img src="{{ url_for('static', filename='images/Logo.PNG') }}" alt="Logo">
+			</section>
+
+			<section class="btn2-group" style="width:50%">
+				<h3> Let's Get Started: </h3>
+
+				<a href="/papers">
+					<button type="button" style="width:33.3%">Input Paper</button>
+				</a>
+			</section>
+		</div>
+	</body>
+</html>

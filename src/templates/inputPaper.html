@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Input Papers Page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	</head>
+	<body>
+		<p>
+			Short Description:
+			<br/>
+			Upload .tex files to see the dependency graph between the paper submitted and its citations.
+		</p>
+
+		<form action="/papers/new" method=POST>
+			<input type="file" name="texFile">
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

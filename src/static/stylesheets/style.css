@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 .btn-group button{
 	background-color:grey;
@@ -94,7 +95,7 @@ th, td {
 	padding: 10px;
 }
 body {
-	background-image: url(img/Background.PNG);
+	background-image: url(static/images/Background.PNG);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
