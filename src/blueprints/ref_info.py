@@ -86,7 +86,8 @@ def run_doxygen(path, paper_id):
 			"Doxyfile",
 			paper_title=paper_id,
 			out_path=path,
-			input_dir=path
+			input_dir=path,
+			readme="../README.md"
 		))
 
 	os.system(" ".join([doxy_cmd, os.path.join(path, "Doxyfile")]))
