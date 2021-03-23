@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Paper Info</title>
+		<!-- <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"> -->
+		<style>
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			th {
+				width: 10%;
+			}
+			td, th {
+				border: 1px solid black;
+				padding: 1%;
+			}
+			tr:nth-child(even) {
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Paper Info</h3>
+		<table>
+			<tr>
+				<th>Title</th>
+				<td contenteditable>{{ lp.get_document_title() }}</td>
+			</tr>
+			<tr>
+				<th>Author(s)</th>
+				<td contenteditable>{{ lp.get_author_info() }}</td>
+			</tr>
+			<tr>
+				<th>Abstract</th>
+				<td contenteditable>{{ lp.get_abstract() }}</td>
+			</tr>
+			<tr>
+				<th>BibTeX References</th>
+				<td contenteditable>{{ lp.get_citation_list() }}</td>
+			</tr>
+			<tr>
+				<th>ID</th>
+				<td contenteditable>{{ lp.id }}</td>
+			</tr>
+		</table>
+
+		<h3>Bibliography Info</h3>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Author(s)</th>
+				<th>Year</th>
+			</tr>
+			{% for ref in refs %}
+			<tr contenteditable>
+				<td>{{ ref.ID }}</td>
+				<td>{{ ref.title }}</td>
+				<td>{{ ref.author }}</td>
+				<td>{{ ref.year }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

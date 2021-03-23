@@ -7,12 +7,19 @@
 	<body>
 		<p>
 			Short Description:
-			<br/>
+			<br />
 			Upload .tex files to see the dependency graph between the paper submitted and its citations.
 		</p>
 
-		<form action="/papers/new" method=POST>
-			<input type="file" name="texFile">
+		<form action="/papers/new" method=POST enctype="multipart/form-data">
+			<label for="texFile">LaTeX File</label>
+			<br />
+			<input type="file" id="texFile" name="texFile" accept=".tex">
+			<br />
+			<label for="bibFile">BibTeX File</label>
+			<br />
+			<input type="file" id="bibFile" name="bibFile" accept=".bib">
+			<br />
 			<input type="submit" value="Submit">
 		</form>
 	</body>
