@@ -3,25 +3,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema citation_graph
 -- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema Citation_graph_system
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `Citation_graph_system` ;
+DROP SCHEMA IF EXISTS `citation_graph` ;
 
 -- -----------------------------------------------------
--- Schema Citation_graph_system
+-- Schema citation_graph
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Citation_graph_system` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `Citation_graph_system` ;
+CREATE SCHEMA IF NOT EXISTS `citation_graph` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `citation_graph` ;
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`CHECKS_PAPER_REFRENCES`
+-- Table `citation_graph`.`CHECKS_PAPER_REFRENCES`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`CHECKS_PAPER_REFRENCES` ;
+DROP TABLE IF EXISTS `citation_graph`.`CHECKS_PAPER_REFRENCES` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`CHECKS_PAPER_REFRENCES` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`CHECKS_PAPER_REFRENCES` (
   `checkingID` INT NOT NULL,
   `PaperName` VARCHAR(45) NOT NULL,
   `PublisherName` VARCHAR(45) NOT NULL,
@@ -36,11 +33,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`CITATION_GRAPH_TOOL`
+-- Table `citation_graph`.`CITATION_GRAPH_TOOL`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`CITATION_GRAPH_TOOL` ;
+DROP TABLE IF EXISTS `citation_graph`.`CITATION_GRAPH_TOOL` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`CITATION_GRAPH_TOOL` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATION_GRAPH_TOOL` (
   `ToolProductionID` INT NOT NULL,
   `ToolName` VARCHAR(45) NOT NULL,
   `VisualOperations` TINYINT NOT NULL,
@@ -56,11 +53,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`EDIT_VISUAL_DEPENDENCY`
+-- Table `citation_graph`.`EDIT_VISUAL_DEPENDENCY`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`EDIT_VISUAL_DEPENDENCY` ;
+DROP TABLE IF EXISTS `citation_graph`.`EDIT_VISUAL_DEPENDENCY` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`EDIT_VISUAL_DEPENDENCY` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`EDIT_VISUAL_DEPENDENCY` (
   `updationID` INT NOT NULL,
   `updateNumber` INT NOT NULL,
   `publisherID` INT NOT NULL,
@@ -77,11 +74,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`INPUT_PAPER`
+-- Table `citation_graph`.`INPUT_PAPER`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`INPUT_PAPER` ;
+DROP TABLE IF EXISTS `citation_graph`.`INPUT_PAPER` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`INPUT_PAPER` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`INPUT_PAPER` (
   `paperID` INT NOT NULL,
   `Title` VARCHAR(45) NOT NULL,
   `No_of_publishers` INT NOT NULL,
@@ -99,11 +96,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`OUTPUT_VISUAL_DEPENDENCY`
+-- Table `citation_graph`.`OUTPUT_VISUAL_DEPENDENCY`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`OUTPUT_VISUAL_DEPENDENCY` ;
+DROP TABLE IF EXISTS `citation_graph`.`OUTPUT_VISUAL_DEPENDENCY` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`OUTPUT_VISUAL_DEPENDENCY` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`OUTPUT_VISUAL_DEPENDENCY` (
   `outputID` INT NOT NULL,
   `paperID` INT NOT NULL,
   `outputTime` DATETIME NOT NULL,
@@ -118,11 +115,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`SAVE_VISUAL_DEPENDENCY`
+-- Table `citation_graph`.`SAVE_VISUAL_DEPENDENCY`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`SAVE_VISUAL_DEPENDENCY` ;
+DROP TABLE IF EXISTS `citation_graph`.`SAVE_VISUAL_DEPENDENCY` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`SAVE_VISUAL_DEPENDENCY` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`SAVE_VISUAL_DEPENDENCY` (
   `savingID` INT NOT NULL,
   `sizeOfFile` INT NOT NULL,
   `noOfCopies` INT NOT NULL,
@@ -138,11 +135,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `Citation_graph_system`.`USER`
+-- Table `citation_graph`.`USER`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `Citation_graph_system`.`USER` ;
+DROP TABLE IF EXISTS `citation_graph`.`USER` ;
 
-CREATE TABLE IF NOT EXISTS `Citation_graph_system`.`USER` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`USER` (
   `idUSER` INT NOT NULL,
   `User_Name` VARCHAR(45) NOT NULL,
   `User_Age` INT NOT NULL,
