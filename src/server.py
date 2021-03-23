@@ -18,6 +18,7 @@ def create_app(test_config=None):
 	)
 
 	app.config.from_mapping(
+		SECRET_KEY='7#8$G&qi9bC5b#9jcHiaMvGpnwZdjga^',
 		USER_PAPERS=os.path.join(app.instance_path,'user_files', 'papers')
 	)
 

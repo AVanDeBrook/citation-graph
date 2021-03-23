@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-# from cwriter import CWriter
+from cwriter import CWriter
 from parsers.bibtexparser import BibtexParser
 from parsers.latexparser import LatexParser
 from flask import *
@@ -44,10 +44,43 @@ def new_paper():
 			if entry['ID'] in latex_parser.get_citation_list():
 				bibtex_refs.append(entry)
 
-		# CWriter(
-		# 	os.path.join(file_path, bib_file.filename),
-		# 	os.path.join(file_path, tex_file.filename),
-		# 	os.path.join(file_path, tex_file.filename + ".c")
-		# )
+
+		session['paper_id'] = latex_parser.id
+		session['bibtex_filename'] = bib_file.filename
+		session['tex_filename'] = tex_file.filename
 
 		return render_template('reference_info.html', refs=bibtex_refs, lp=latex_parser)
+
+@bp.route('/doxygen', methods=('GET', 'POST'))
+def doxygen():
+	if request.method == 'POST':
+		file_path = os.path.join(current_app.config['USER_PAPERS'], session['paper_id'])
+
+		CWriter(
+			os.path.join(file_path, session['bibtex_filename']),
+			os.path.join(file_path, session['tex_filename']),
+			os.path.join(file_path, session['tex_filename'] + ".c")
+		)
+
+		run_doxygen(file_path, session['paper_id'])
+
+		with open(os.path.join(file_path, "html", "index.html"), "r") as doxy_index:
+			return doxy_index.read()
+
+@bp.route('/<path:file>')
+def doxygen_files(file):
+	with open(os.path.join(current_app.config['USER_PAPERS'], session['paper_id'], "html", escape(file)), "rb") as doxygen_file:
+		return doxygen_file.read()
+
+def run_doxygen(path, paper_id):
+	doxy_cmd = "doxygen"
+
+	with open(os.path.join(path, "Doxyfile"), "w") as dox_cfg:
+		dox_cfg.write(render_template(
+			"Doxyfile",
+			paper_title=paper_id,
+			out_path=path,
+			input_dir=os.path.join(path, paper_id)
+		))
+
+	os.system(" ".join([doxy_cmd, os.path.join(path, "Doxyfile")]))
