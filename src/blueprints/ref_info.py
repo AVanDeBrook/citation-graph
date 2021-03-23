@@ -44,7 +44,6 @@ def new_paper():
 			if entry['ID'] in latex_parser.get_citation_list():
 				bibtex_refs.append(entry)
 
-
 		session['paper_id'] = latex_parser.id
 		session['bibtex_filename'] = bib_file.filename
 		session['tex_filename'] = tex_file.filename
@@ -69,6 +68,13 @@ def doxygen():
 
 @bp.route('/<path:file>')
 def doxygen_files(file):
+	@after_this_request
+	def add_header(response):
+		if file.endswith('.js'):
+			response.headers['Content-Type'] = 'application/javascript'
+		elif file.endswith('.css'):
+			response.headers['Content-Type'] = 'text/css'
+		return response
 	with open(os.path.join(current_app.config['USER_PAPERS'], session['paper_id'], "html", escape(file)), "rb") as doxygen_file:
 		return doxygen_file.read()
 
@@ -80,7 +86,7 @@ def run_doxygen(path, paper_id):
 			"Doxyfile",
 			paper_title=paper_id,
 			out_path=path,
-			input_dir=os.path.join(path, paper_id)
+			input_dir=path
 		))
 
 	os.system(" ".join([doxy_cmd, os.path.join(path, "Doxyfile")]))
