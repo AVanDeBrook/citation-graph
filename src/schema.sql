@@ -21,6 +21,8 @@ DROP TABLE IF EXISTS `citation_graph`.`PAPERS` ;
 CREATE TABLE IF NOT EXISTS `citation_graph`.`PAPERS` (
   `sequence_id` INT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
+  `has_bib` BOOLEAN NOT NULL DEFAULT 0,
+  `has_tex` BOOLEAN NOT NULL DEFAULT 0,
   `title_bib` VARCHAR(255),
   `title_tex` VARCHAR(255),
   `author_bib` VARCHAR(255),
