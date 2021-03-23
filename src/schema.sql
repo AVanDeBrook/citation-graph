@@ -14,13 +14,13 @@ CREATE SCHEMA IF NOT EXISTS `citation_graph` DEFAULT CHARACTER SET utf8mb4 COLLA
 USE `citation_graph` ;
 
 -- -----------------------------------------------------
--- Table `citation_graph`.`CITATION_GRAPH`
+-- Table `citation_graph`.`PAPERS`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `citation_graph`.`CITATION_GRAPH` ;
+DROP TABLE IF EXISTS `citation_graph`.`PAPERS` ;
 
-CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATION_GRAPH` (
-  `id` INT NOT NULL,
-  `paper` VARCHAR(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `citation_graph`.`PAPERS` (
+  `sequence_id` INT NOT NULL,
+  `paper_id` VARCHAR(255) NOT NULL,
   `title_bib` VARCHAR(255),
   `title_tex` VARCHAR(255),
   `author_bib` VARCHAR(255),
@@ -37,13 +37,28 @@ CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATION_GRAPH` (
   `abstract` VARCHAR(255),
   `index_terms` VARCHAR(255),
   `bib` VARCHAR(255),
-  `citations` VARCHAR(255),
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+  PRIMARY KEY (`sequence_id`),
+  UNIQUE INDEX `sequence_id_UNIQUE` (`sequence_id` ASC) VISIBLE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+-- -----------------------------------------------------
+-- Table `citation_graph`.`CITATIONS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `citation_graph`.`CITATIONS` ;
+
+CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATIONS` (
+  `sequence_id` INT NOT NULL,
+  `paper_id` VARCHAR(255) NOT NULL,
+  `reference_paper_id` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`sequence_id`),
+  UNIQUE INDEX `sequence_id_UNIQUE` (`sequence_id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+/*
 -- -----------------------------------------------------
 -- Table `citation_graph`.`CHECKS_PAPER_REFRENCES`
 -- -----------------------------------------------------
@@ -185,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `citation_graph`.`USER` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
+*/
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
