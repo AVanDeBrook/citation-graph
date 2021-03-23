@@ -14,6 +14,37 @@ CREATE SCHEMA IF NOT EXISTS `citation_graph` DEFAULT CHARACTER SET utf8mb4 COLLA
 USE `citation_graph` ;
 
 -- -----------------------------------------------------
+-- Table `citation_graph`.`CITATION_GRAPH`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `citation_graph`.`CITATION_GRAPH` ;
+
+CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATION_GRAPH` (
+  `id` INT NOT NULL,
+  `paper` VARCHAR(255) NOT NULL,
+  `title_bib` VARCHAR(255),
+  `title_tex` VARCHAR(255),
+  `author_bib` VARCHAR(255),
+  `author_tex` VARCHAR(255),
+  `year` INT,
+  `month` VARCHAR(255),
+  `volume` VARCHAR(255),
+  `number` VARCHAR(255),
+  `pages` VARCHAR(255),
+  `publisher` VARCHAR(255),
+  `journal` VARCHAR(255),
+  `last_accessed` VARCHAR(255),
+  `address` VARCHAR(255),
+  `abstract` VARCHAR(255),
+  `index_terms` VARCHAR(255),
+  `bib` VARCHAR(255),
+  `citations` VARCHAR(255),
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
 -- Table `citation_graph`.`CHECKS_PAPER_REFRENCES`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `citation_graph`.`CHECKS_PAPER_REFRENCES` ;
