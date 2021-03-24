@@ -105,7 +105,6 @@ h2{
 	font-size:40px;
 }
 
-
 #contact{
 	background-image: url(img/contactPageBackground.jpg);
 	background-repeat: no-repeat;
@@ -148,7 +147,6 @@ h2{
 	padding: 3%;
 }
 
-
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
     background: #324960;
@@ -163,4 +161,33 @@ h2{
 	margin-right: auto;
 	width: 17%;
 	height: 17%;
+}
+
+/* INPUT PAGE EDITING */
+.inputPage{
+	background-color: lightgray;
+	margin-top: 5%;
+	padding: 50px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 25%;
+	border-radius: 25px;
+}
+
+body#input{
+	background-image: url(img/erauimg.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size:20px;
+}
+
+input{
+	font-size: 15px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif
 }
