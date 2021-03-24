@@ -76,9 +76,6 @@ body#about{
 	font-weight: bold;
 	text-align: center;
 }
-h2{
-	color: white;
-}
 #p-aboutpage{
 	color: black;
 	text-indent: 30px;
@@ -98,18 +95,25 @@ h2{
 }
 
 /* CONTACT PAGE EDITING */
-h2{
+.contactH2{
     text-align: center;
     font-family: "Goudy Old Style", serif;
 	color: white;
 	font-weight: bolder;
 	font-size:40px;
 }
+#contact{
+	background-image: url(/static/images/contactPageBackground.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
 .table-wrapper{
     margin: 10px 70px 70px;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
-
 .fl-table {
     border-radius: 5px;
     font-size: 20px;
@@ -121,30 +125,24 @@ h2{
     white-space: nowrap;
     background-color: white;
 }
-
 .fl-table td, .fl-table th {
     text-align: center;
     padding: 8px;
 }
-
 .fl-table td {
     border-right: 1px solid #f8f8f8;
     font-size: 15px;
 	padding: 3%;
 }
-
 .fl-table thead th {
     color: #ffffff;
     background: #4FC3A1;
 	padding: 3%;
 }
-
-
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
     background: #324960;
 }
-
 .fl-table tr:nth-child(even) {
     background: #F8F8F8;
 }
@@ -154,4 +152,81 @@ h2{
 	margin-right: auto;
 	width: 17%;
 	height: 17%;
+}
+
+/* INPUT PAGE EDITING */
+.inputPage{
+	background-color: lightgray;
+	margin-top: 5%;
+	padding: 50px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 25%;
+	border-radius: 25px;
+}
+body#input{
+	background-image: url(/static/images/erauimg.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size:20px;
+}
+.inputForm{
+	font-size: 15px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+/* LOOK UP PAGE EDITING */
+body#lookup{
+	background-image: url(/static/images/lookUpBackground.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 22px;
+}
+.lookupH1{
+	position: relative;
+	left: 50px;
+	font-size: 35px;
+	top: 110px;
+}
+#p-lookUpPage{
+	position: relative;
+	left: 20px;
+	top: 140px;
+}
+.lookForm{
+		font-size: 15px;
+		position: relative;
+		left: 75px;
+		top: 40px;
+}	
+.lookUpPage{
+	background-color: lightgray;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding: 50px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 83%;
+	height: 66vh;	
+}
+.lookimg{
+	position: relative;
+	display: block;
+	height: 60vh;
+	width: 60%;
+	margin-left: 40%;
+	margin-right: auto;
+	bottom: 150px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
