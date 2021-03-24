@@ -16,6 +16,7 @@ The following dependencies are needed:
 
 Python v3.x Dependencies:
 * `bibtexparser`
+* `flask`
 * `pylatexenc`
 * `re` (if not provided by default w/ python 3.x)
 
@@ -25,7 +26,7 @@ System Dependencies:
 
 Use the following script to download the dependencies listed above
 ```bash
-pip install pylatexenc bibtexparser re
+pip install bibtexparser flask pylatexenc re
 ```
 
 Non-Python Dependencies:

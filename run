@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+export FLASK_APP=server.py
+# Change this for demos, otherwise there will be debugger stack traces written to the web page
+export FLASK_ENV=development
+
+cd src && flask run && cd ..

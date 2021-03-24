@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		<title>Look Up Paper</title>
+		<link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	</head>
+	<body>
+		<p>
+			Short Description:
+			<br>
+			Enter the name of the paper you wish to find.
+		</p>
+		<form action="/search/paper" method=POST>
+			<input type="text" value="Input paper name" name="search">
+			<input type="submit" value="Look Up">
+		</form>
+	</body>
+</html>

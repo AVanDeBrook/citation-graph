@@ -1,4 +1,5 @@
-/* HOME PAGE EDITING */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
 .btn-group button{
 	background-color:grey;
 	font-size: 20px;
@@ -37,8 +38,8 @@
 .btn2-group button:hover{
 	background-color:ivory;
 }
-body#home{
-	background-image: url(img/Background.PNG);
+#home{
+	background-image: url(/static/images/Background.PNG);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -60,7 +61,7 @@ body#home{
 }
 /* ABOUT PAGE EDITING */
 body#about{
-	background-image: url(img/aboutPageBackground.jpg);
+	background-image: url(/static/images/aboutPageBackground.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -92,7 +93,7 @@ h2{
 
 .aboutimg{
 	display: block;
-	width: 100%; 
+	width: 100%;
 	height: 400px;
 }
 
@@ -103,16 +104,6 @@ h2{
 	color: white;
 	font-weight: bolder;
 	font-size:40px;
-}
-
-
-body#contact{
-	background-image: url(img/contactPageBackground.jpg);
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
 }
 .table-wrapper{
     margin: 10px 70px 70px;

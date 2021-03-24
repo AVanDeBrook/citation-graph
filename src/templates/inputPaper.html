@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Input Papers Page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	</head>
+
+	<body id="home">
+		<section id="inputPage" class="inputPage datatables">
+			<h1>Input Paper Here:</h1>
+			<p>
+				Short Description:
+				<br>
+				Upload .tex files to see the dependency graph between the paper submitted and its citations.
+			</p>
+
+			<form action="/papers/new" method=POST enctype="multipart/form-data">
+				<label for="texFile">LaTeX File</label>
+				<input type="file" name="texFile" accept=".tex">
+				<label for="bibFile">BibTeX File</label>
+				<input type="file" name="bibFile" accept=".bib">
+				<input type="submit" value="Submit">
+			</form>
+		</section>
+	</body>
+</html>
