@@ -17,10 +17,8 @@ def create_app(test_config=None):
 		instance_relative_config=True,
 	)
 
-	app.config.from_mapping(
-		SECRET_KEY='7#8$G&qi9bC5b#9jcHiaMvGpnwZdjga^',
-		USER_PAPERS=os.path.join(app.instance_path,'user_files', 'papers')
-	)
+	app.config.from_object("config.Config")
+	app.config['USER_PAPERS'] = os.path.join(app.instance_path,'user_files', 'papers')
 
 	if test_config is None:
 		app.config.from_pyfile('config.py', silent=True)
