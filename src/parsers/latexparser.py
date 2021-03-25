@@ -176,7 +176,7 @@ class LatexParser(object):
 Example usage
 """
 def main():
-	lp = LatexParser("data/graph/liu2008.tex")
+	lp = LatexParser("data/graph/liuLi2008.tex")
 	# lp._print_dict_info()
 	print("ID:\t", lp.id)
 	print("Title:\t", lp.get_document_title())

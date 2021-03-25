@@ -74,7 +74,7 @@ class CWriter(object):
 			cstrings.append(self.STR_METHOD_SIGNATURE.replace("%function_name%", bib_dict["ID"]))
 
 			# call methods aka references to other papers
-			if (latex_parser.id == bib_dict['ID']):
+			if (latex_parser.id.lower() == bib_dict['ID'].lower()):
 				for citation_id in latex_parser.get_citation_list():
 					cstrings.append(self.STR_CALL_METHOD.replace("%function_name%", citation_id))
 			
@@ -94,7 +94,7 @@ Example usage
 def main():
 	cwriter = CWriter(
         'data/commonFiles/all.bib',
-        'data/graph/Liu2008.tex',
+        'data/graph/liuLi2008.tex',
 		'data/out/c/cfordoxygen.c'
     )
 
