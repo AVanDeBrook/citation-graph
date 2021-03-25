@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	 <head>
+		<title>Look Up Paper</title>
+		<link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}">
+	</head>
+	<body id="lookup">
+		<section id="lookUpPage" class="lookUpPage	Page datatables">
+			<h1 class="lookupH1"> Let's Find That Paper</h1>
+			<section id="p-lookUpPage">
+				<p>
+					Enter the name of the paper you wish to find
+				</p>
+				<form class="lookForm" action="">
+					<input type="text" value="Input paper name">
+					<input type="submit" value="Look Up">
+				</form>
+			</section>
+		</body>
+		<section>
+			<img src="{{ url_for('static', filename='images/lookup.jpg') }}" alt="school" class="lookimg" />
+		</section>
+</html>

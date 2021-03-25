@@ -9,3 +9,15 @@
 
 # VSCode workspace/project settings
 .vscode
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.pyc
+**/*.pyc
+
+# Internal Server files
+src/instance
+
+# Secret config info (i.e. secret key for cookies, database username(s) and password(s))
+src/config.py

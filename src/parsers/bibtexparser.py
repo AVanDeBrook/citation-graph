@@ -17,9 +17,8 @@ class BibtexParser(object):
 	"""
 	def __init__(self, bib_file, keys_list):
 
-		with open(bib_file) as bibtex_file:
-			self.bib_entries = bibtexparser.load(bibtex_file)
-
+		bibtex_file = open(bib_file, encoding='cp1252')
+		self.bib_entries = bibtexparser.load(bibtex_file)
 		self.dict_entries = self.parse_entries(self.bib_entries, keys_list)
 
 	"""
