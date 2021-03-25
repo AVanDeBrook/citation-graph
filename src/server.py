@@ -12,6 +12,9 @@ from blueprints import ref_info, lookup_paper
 # webbrowser.open("../data/out/doxygen/html/index.html")
 
 def create_app(test_config=None):
+	if os.path.abspath(os.curdir).find(" ") != -1:
+		raise Exception("Path name contains spaces. Please move the installation folder to one without spaces in the path name.")
+
 	app = Flask(
 		__name__,
 		instance_relative_config=True,
