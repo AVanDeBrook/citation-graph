@@ -1,4 +1,3 @@
-include src/config.py
 include src/cwriter.py
 include src/server.py
 
