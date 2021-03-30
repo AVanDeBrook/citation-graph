@@ -1,0 +1,12 @@
+include src/config.py
+include src/cwriter.py
+include src/server.py
+
+graft src/blueprints
+graft src/instance
+graft src/parsers
+graft src/static
+graft src/templates
+
+global-exclude *.pyc
+global-exclude src/config.py
