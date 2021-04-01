@@ -54,8 +54,74 @@ def create_app(test_config=None):
 	app.register_blueprint(ref_info.bp)
 	app.register_blueprint(lookup_paper.bp)
 
+	def get_db():
+		db = getattr(g, '_database', None)
+		if db is None:
+			db = g._database = sqlite3.connect(DATABASE)
+		return db
+
+	def init_db(app):
+		with app.app_context():
+			db = get_db()
+			with app.open_resource('schema.sql', mode='r') as f:
+				db.cursor().executescript(f.read())
+			db.commit()
+
 	# TODO if (database doesn't exist yet):
 	init_db(app)
+
+	'''
+	@app.route('/addpapercorrina', methods = ['POST', 'GET'])
+	def addpapercorrina():
+		if request.method == 'POST':
+			try:
+				paperId = request.form['paperId']
+
+				with sqlite3.connect(DATABASE) as con:
+					cur = con.cursor()
+					cur.execute(QUERY_INSERT_PAPER, (paperId))
+					con.commit()
+			except:
+				con.rollback()
+			finally:
+				con.close()
+
+	def query_db(query, args=(), one=False):
+		cur = get_db().execute(query, args)
+		rv = cur.fetchall()
+		cur.close()
+		return (rv[0] if rv else None) if one else rv
+
+	@app.teardown_appcontext
+	def close_connection(exception):
+		db = getattr(g, '_database', None)
+		if db is not None:
+			db.close()
+
+	# TODO delete later, here for reference and testing
+	def query_db_example_usage():
+		myPaperId = 'LiuLi2008'
+		print('EXAMPLE DB USAGE FOR PAPER ID' + myPaperId)
+
+		paper = query_db(QUERY_GET_PAPER_BY_ID, [myPaperId], one=True)
+		if paper is None:
+			print('No such paper' + myPaperId)
+			return
+		else:
+			print('Retrieved whole paper, can access attributes like title:' + paper['title_bib'])
+
+		papers = query_db(QUERY_GET_PAPERS_BY_ATTRIBUTE, ['month', 'December'], one=True)
+		print('Retrieved all papers with attribue month = December' + papers.len)
+
+		paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', myPaperId], one=True)
+		print('Retrieved only attribute title from paper:' + paper['title_bib'])
+
+		for citation in query_db(QUERY_GET_CITATIONS_BY_ID, myPaperId):
+			print(myPaperId + 'references' + citation['reference_paper_id'])
+
+		query_db(QUERY_INSERT_CITATION, [myPaperId, 'DelGreco2021'])
+
+		query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', myPaperId])
 
 	@app.route('/addpaper', methods = ['POST', 'GET'])
 	def addpaper():
@@ -72,99 +138,34 @@ def create_app(test_config=None):
 			finally:
 				con.close()
 
+	@app.route('/updateattribute', methods = ['POST', 'GET'])
+	def updateattribute():
+		if request.method == 'POST':
+			try:
+				paperId = request.form['paperId']
+				attributeName = 'title_bib' # TODO determine which attribute
+				attributeValue = request.form[attributeName]
+
+				with sqlite3.connect(DATABASE) as con:
+					cur = con.cursor()
+					cur.execute(QUERY_UPDATE_ATTRIBUTE, (attributeName, attributeValue, paperId))
+					con.commit()
+			except:
+				con.rollback()
+			finally:
+				con.close()
+
+	@app.route('/list')
+	def list():
+		con = sqlite3.connect(DATABASE)
+		con.row_factory = sqlite3.Row
+	
+		cur = con.cursor()
+		cur.execute("SELECT * FROM paper")
+	
+		rows = cur.fetchall(); 
+		return render_template("idk.html", rows = rows)
+	'''
+	
 	return app
 
-def init_db(app):
-	with app.app_context():
-		db = get_db()
-		with app.open_resource('schema.sql', mode='r') as f:
-			db.cursor().executescript(f.read())
-		db.commit()
-
-def get_db():
-	db = getattr(g, '_database', None)
-	if db is None:
-		db = g._database = sqlite3.connect(DATABASE)
-	return db
-
-def query_db(query, args=(), one=False):
-	cur = get_db().execute(query, args)
-	rv = cur.fetchall()
-	cur.close()
-	return (rv[0] if rv else None) if one else rv
-
-@app.teardown_appcontext
-def close_connection(exception):
-	db = getattr(g, '_database', None)
-	if db is not None:
-		db.close()
-
-# TODO delete later, here for reference and testing
-def query_db_example_usage():
-	myPaperId = 'LiuLi2008'
-	print('EXAMPLE DB USAGE FOR PAPER ID' + myPaperId)
-
-	paper = query_db(QUERY_GET_PAPER_BY_ID, [myPaperId], one=True)
-	if paper is None:
-		print('No such paper' + myPaperId)
-		return
-	else:
-		print('Retrieved whole paper, can access attributes like title:' + paper['title_bib'])
-
-	papers = query_db(QUERY_GET_PAPERS_BY_ATTRIBUTE, ['month', 'December'], one=True)
-	print('Retrieved all papers with attribue month = December' + papers.len)
-
-	paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', myPaperId], one=True)
-	print('Retrieved only attribute title from paper:' + paper['title_bib'])
-
-	for citation in query_db(QUERY_GET_CITATIONS_BY_ID, myPaperId):
-		print(myPaperId + 'references' + citation['reference_paper_id'])
-
-	query_db(QUERY_INSERT_CITATION, [myPaperId, 'DelGreco2021'])
-
-	query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', myPaperId])
-
-@app.route('/addpaper', methods = ['POST', 'GET'])
-def addpaper():
-	if request.method == 'POST':
-		try:
-			paperId = request.form['paperId']
-
-			with sqlite3.connect(DATABASE) as con:
-				cur = con.cursor()
-				cur.execute(QUERY_INSERT_PAPER, (paperId))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
-
-@app.route('/updateattribute', methods = ['POST', 'GET'])
-def updateattribute():
-	if request.method == 'POST':
-		try:
-			paperId = request.form['paperId']
-			attributeName = 'title_bib' # TODO determine which attribute
-			attributeValue = request.form[attributeName]
-
-			with sqlite3.connect(DATABASE) as con:
-				cur = con.cursor()
-				cur.execute(QUERY_UPDATE_ATTRIBUTE, (attributeName, attributeValue, paperId))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
-
-'''
-@app.route('/list')
-def list():
-	con = sqlite3.connect(DATABASE)
-	con.row_factory = sqlite3.Row
-   
-	cur = con.cursor()
-	cur.execute("SELECT * FROM paper")
-   
-	rows = cur.fetchall(); 
-	return render_template("idk.html", rows = rows)
-'''
