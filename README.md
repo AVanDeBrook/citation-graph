@@ -16,7 +16,7 @@ For a sanity check, you can run the following to make sure the app (and its depe
 ```bash
 pip list | grep citation-graph
 ```
-There should be an output similar to below (your installation path and version number may be different):
+(Note grep is a UNIX only command.) There should be an output similar to below (your installation path and version number may be different):
 ```bash
 Package                Version         Location
 ---------------------- --------------- --------------------------------------------
@@ -50,4 +50,4 @@ class Config(object):
 ```
 Note that the secret key should, ideally, be some sort of randomly generated string. It is needed to sign cookies that the server needs to operate properly.
 
-Finally, run either `run.bat` (Windows) or `run` (Linux) to start the server and go the [https://127.0.0.1:5000](https://127.0.0.1:5000) to view the index page.
+Finally, run either `run.bat` (Windows) or `run` (Linux) to start the server and go to [https://127.0.0.1:5000](https://127.0.0.1:5000) in a browser to view the index page.

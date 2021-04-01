@@ -14,11 +14,11 @@ CREATE SCHEMA IF NOT EXISTS `citation_graph` DEFAULT CHARACTER SET utf8mb4 COLLA
 USE `citation_graph` ;
 
 -- -----------------------------------------------------
--- Table `citation_graph`.`PAPERS`
+-- Table `citation_graph`.`paper`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `citation_graph`.`PAPERS` ;
+DROP TABLE IF EXISTS `citation_graph`.`paper` ;
 
-CREATE TABLE IF NOT EXISTS `citation_graph`.`PAPERS` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`paper` (
   `sequence_id` INT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
   `has_bib` BOOLEAN NOT NULL DEFAULT 0,
@@ -46,11 +46,11 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 -- -----------------------------------------------------
--- Table `citation_graph`.`CITATIONS`
+-- Table `citation_graph`.`citation`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `citation_graph`.`CITATIONS` ;
+DROP TABLE IF EXISTS `citation_graph`.`citation` ;
 
-CREATE TABLE IF NOT EXISTS `citation_graph`.`CITATIONS` (
+CREATE TABLE IF NOT EXISTS `citation_graph`.`citation` (
   `sequence_id` INT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
   `reference_paper_id` VARCHAR(255) NOT NULL,
