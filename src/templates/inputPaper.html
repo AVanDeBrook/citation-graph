@@ -11,12 +11,14 @@
 			<p>
 				Upload .tex files to see the dependency graph between the paper submitted and its citations.
 			</p>
-	
+
 			<form action="/papers/new" method=POST enctype="multipart/form-data">
 				<label for="texFile">LaTeX File</label>
 				<input type="file" name="texFile" accept=".tex">
+				<br>
 				<label for="bibFile">BibTeX File</label>
 				<input type="file" name="bibFile" accept=".bib">
+				<br>
 				<input type="submit" value="Submit">
 			</form>
 		</section>
