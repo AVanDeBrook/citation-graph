@@ -6,28 +6,48 @@ When researchers do research, they read a lot of papers. It is really a good ide
 
 However, the current produces lack an important function: adding necessary info to the citation graph. This info includes the summary of important contributions of the paper, how each contribution is related to a specific citation, the names of authors, the affiliation of the authors at the time of publishing the paper (which means there can be a list of affiliations for a single author). It is our contribution to implement the dependency/citation graph with the added information.
 
-## Cloning, Building, etc.
-To clone:
+## Building and Running
+### To Build (Option 1: Automatic)
+Run the following command (from within the cloned repo) to automatically install the project's dependencies
 ```bash
-git clone https://github.com/AVanDeBrook/citation-graph.git
+pip install -e .
 ```
-To build:
+For a sanity check, you can run the following to make sure the app (and its dependencies) have been installed:
+```bash
+pip list | grep citation-graph
+```
+There should be an output similar to below (your installation path and version number may be different):
+```bash
+Package                Version         Location
+---------------------- --------------- --------------------------------------------
+citation-graph         0.2.0           /home/avandebrook/Programming/citation-graph
+```
+### To Build (Option 2: Manual)
 The following dependencies are needed:
 
 Python v3.x Dependencies:
-* `bibtexparser`
-* `flask`
-* `pylatexenc`
-* `re` (if not provided by default w/ python 3.x)
+* [`bibtexparser`](https://bibtexparser.readthedocs.io/en/master/)
+* [`flask`](https://flask.palletsprojects.com/)
+* [`pylatexenc`](https://pylatexenc.readthedocs.io/en/latest/index.html)
 
 System Dependencies:
-* `graphviz`
-* `doxygen`
+* [`graphviz`](https://graphviz.org/)
+* [`doxygen`](https://www.doxygen.nl/)
 
 Use the following script to download the dependencies listed above
 ```bash
-pip install bibtexparser flask pylatexenc re
+pip install bibtexparser flask pylatexenc
 ```
+### To Run
+The server needs a configuration file to setup a few options that the server needs to run properly.
 
-Non-Python Dependencies:
-* [Doxygen](https://www.doxygen.nl/index.html) [(GitHub,](https://github.com/doxygen/doxygen) [man pages)](https://docs.oracle.com/cd/E88353_01/html/E37839/doxygen-1.html)
+Create a file, `src/config.py`, that follows a structure similar to below:
+```python3
+class Config(object):
+	DEBUG=True
+	TESTING=False
+	SECRET_KEY='something secret'
+```
+Note that the secret key should, ideally, be some sort of randomly generated string. It is needed to sign cookies that the server needs to operate properly.
+
+Finally, run either `run.bat` (Windows) or `run` (Linux) to start the server and go the [https://127.0.0.1:5000](https://127.0.0.1:5000) to view the index page.
