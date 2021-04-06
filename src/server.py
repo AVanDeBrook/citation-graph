@@ -16,7 +16,7 @@ QUERY_GET_PAPER_BY_ID = 'SELECT * FROM paper WHERE paper_id = ?'
 QUERY_GET_PAPERS_BY_ATTRIBUTE = 'SELECT * FROM paper WHERE ? = ?'
 QUERY_GET_ATTRIBUTE_BY_ID = 'SELECT ? FROM paper WHERE paper_id = ?'
 QUERY_GET_CITATIONS_BY_ID = 'SELECT reference_paper_id FROM citation WHERE paper_id = ?'
-QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id) VALUES (?)'
+QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)'
 QUERY_INSERT_CITATION = 'INSERT INTO citation (paper_id, reference_paper_id) VALUES (?, ?)'
 QUERY_UPDATE_ATTRIBUTE = 'UPDATE paper SET ? = ? WHERE paper_id = ?'
 
@@ -70,21 +70,30 @@ def create_app(test_config=None):
 	# TODO if (database doesn't exist yet):
 	init_db(app)
 
-	'''
-	@app.route('/addpapercorrina', methods = ['POST', 'GET'])
-	def addpapercorrina():
-		if request.method == 'POST':
-			try:
-				paperId = request.form['paperId']
+	# @app.route('/corrinaaddpaper', methods = ['POST', 'GET'])
+	@app.route('/corrinaaddpaper')
+	def corrinaaddpaper():
+		# if request.method == 'POST':
+		try:
+			# paperId = request.form['paperId']
+			paperId = 'Corrina2008'
 
-				with sqlite3.connect(DATABASE) as con:
-					cur = con.cursor()
-					cur.execute(QUERY_INSERT_PAPER, (paperId))
-					con.commit()
-			except:
-				con.rollback()
-			finally:
-				con.close()
+			with sqlite3.connect(DATABASE) as con:
+				cur = con.cursor()
+				cur.execute(QUERY_INSERT_PAPER, (paperId, 0, 0))
+				con.commit()
+		except:
+			con.rollback()
+		finally:
+			con.close()
+		return render_template('index.html')
+
+	@app.route('/corrinalist')
+	def corrinalist():
+		rows = query_db('SELECT * FROM paper')
+		print(rows)
+		# return render_template("todo.html", rows = rows)
+		return render_template('index.html')
 
 	def query_db(query, args=(), one=False):
 		cur = get_db().execute(query, args)
@@ -92,6 +101,7 @@ def create_app(test_config=None):
 		cur.close()
 		return (rv[0] if rv else None) if one else rv
 
+	'''
 	@app.teardown_appcontext
 	def close_connection(exception):
 		db = getattr(g, '_database', None)
@@ -123,21 +133,6 @@ def create_app(test_config=None):
 
 		query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', myPaperId])
 
-	@app.route('/addpaper', methods = ['POST', 'GET'])
-	def addpaper():
-		if request.method == 'POST':
-			try:
-				paperId = request.form['paperId']
-
-				with sqlite3.connect(DATABASE) as con:
-					cur = con.cursor()
-					cur.execute(QUERY_INSERT_PAPER, (paperId))
-					con.commit()
-			except:
-				con.rollback()
-			finally:
-				con.close()
-
 	@app.route('/updateattribute', methods = ['POST', 'GET'])
 	def updateattribute():
 		if request.method == 'POST':
@@ -154,17 +149,6 @@ def create_app(test_config=None):
 				con.rollback()
 			finally:
 				con.close()
-
-	@app.route('/list')
-	def list():
-		con = sqlite3.connect(DATABASE)
-		con.row_factory = sqlite3.Row
-	
-		cur = con.cursor()
-		cur.execute("SELECT * FROM paper")
-	
-		rows = cur.fetchall(); 
-		return render_template("idk.html", rows = rows)
 	'''
 	
 	return app
