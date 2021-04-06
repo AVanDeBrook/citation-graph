@@ -1,5 +1,5 @@
-DROP TABLE paper;
-CREATE TABLE paper (
+DROP TABLE IF EXISTS paper;
+CREATE TABLE IF NOT EXISTS paper (
   `sequence_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
   `has_bib` BOOLEAN NOT NULL DEFAULT 0,
@@ -22,8 +22,8 @@ CREATE TABLE paper (
   `bib` VARCHAR(255)
 );
 
-DROP TABLE citation ;
-CREATE TABLE citation (
+DROP TABLE IF EXISTS citation ;
+CREATE TABLE IF NOT EXISTS citation (
   `sequence_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
   `reference_paper_id` VARCHAR(255) NOT NULL

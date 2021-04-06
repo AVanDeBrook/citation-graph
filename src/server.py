@@ -70,71 +70,76 @@ def create_app(test_config=None):
 	# TODO if (database doesn't exist yet):
 	init_db(app)
 
-	# @app.route('/corrinaaddpaper', methods = ['POST', 'GET'])
-	@app.route('/corrinaaddpaper')
-	def corrinaaddpaper():
-		# if request.method == 'POST':
-		try:
-			# paperId = request.form['paperId']
-			paperId = 'Corrina2008'
-
-			with sqlite3.connect(DATABASE) as con:
-				cur = con.cursor()
-				cur.execute(QUERY_INSERT_PAPER, (paperId, 0, 0))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
-		return render_template('index.html')
-
-	@app.route('/corrinalist')
-	def corrinalist():
-		rows = query_db('SELECT * FROM paper')
-		print(rows)
-		# return render_template("todo.html", rows = rows)
-		return render_template('index.html')
-
 	def query_db(query, args=(), one=False):
 		cur = get_db().execute(query, args)
 		rv = cur.fetchall()
 		cur.close()
 		return (rv[0] if rv else None) if one else rv
 
-	'''
-	@app.teardown_appcontext
-	def close_connection(exception):
-		db = getattr(g, '_database', None)
-		if db is not None:
-			db.close()
+	# @app.route('/exAddPaper', methods = ['POST', 'GET'])
+	@app.route('/exAddPaper')
+	def exAddPaper():
+		# if request.method == 'POST':
+		try:
+			# paperId = request.form['paperId']
+			paperId = 'Corrina2020'
 
-	# TODO delete later, here for reference and testing
-	def query_db_example_usage():
-		myPaperId = 'LiuLi2008'
-		print('EXAMPLE DB USAGE FOR PAPER ID' + myPaperId)
+			with sqlite3.connect(DATABASE) as con:
+				cur = con.cursor()
+				cur.execute(QUERY_INSERT_PAPER, (paperId, 0, 0))
+				con.commit()
+		except:
+			print('Failed to add paper')
+			con.rollback()
+		finally:
+			con.close()
+		return render_template('index.html')
 
-		paper = query_db(QUERY_GET_PAPER_BY_ID, [myPaperId], one=True)
+	@app.route('/exGetPapers')
+	def exGetPapers():
+		rows = query_db('SELECT * FROM paper')
+		print(rows)
+		# return render_template("newpage.html", rows = rows)
+		return render_template('index.html')
+
+	# @app.route('/exDatabaseUsage', methods = ['POST', 'GET'])
+	@app.route('/exDatabaseUsage')
+	def exDatabaseUsage():
+		# if request.method == 'POST':
+		# paperId = request.form['paperId']
+		paperId = 'Corrina2020'
+
+		paper = query_db(QUERY_GET_PAPER_BY_ID, [paperId], one=True)
 		if paper is None:
-			print('No such paper' + myPaperId)
+			print('No such paper' + paperId)
 			return
 		else:
-			print('Retrieved whole paper, can access attributes like title:' + paper['title_bib'])
+			print('Retrieved whole paper, can access attributes:' + paper[1])
 
-		papers = query_db(QUERY_GET_PAPERS_BY_ATTRIBUTE, ['month', 'December'], one=True)
-		print('Retrieved all papers with attribue month = December' + papers.len)
+		# papers = query_db(QUERY_GET_PAPERS_BY_ATTRIBUTE, ['month', 'December'], one=True)
+		# print('Retrieved all papers with attribue month = December' + papers.len)
 
-		paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', myPaperId], one=True)
-		print('Retrieved only attribute title from paper:' + paper['title_bib'])
+		# paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', paperId], one=True)
+		# print('Retrieved only attribute title from paper:' + paper['title_bib'])
 
-		for citation in query_db(QUERY_GET_CITATIONS_BY_ID, myPaperId):
-			print(myPaperId + 'references' + citation['reference_paper_id'])
+		# for citation in query_db(QUERY_GET_CITATIONS_BY_ID, paperId):
+		# 	print(paperId + 'references' + citation['reference_paper_id'])
 
-		query_db(QUERY_INSERT_CITATION, [myPaperId, 'DelGreco2021'])
+		# paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', paperId], one=True)
+		# print('Retrieved only attribute title from paper:' + paper['title_bib'])
 
-		query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', myPaperId])
+		# for citation in query_db(QUERY_GET_CITATIONS_BY_ID, paperId):
+		# 	print(paperId + 'references' + citation['reference_paper_id'])
 
-	@app.route('/updateattribute', methods = ['POST', 'GET'])
-	def updateattribute():
+		# query_db(QUERY_INSERT_CITATION, [paperId, 'DelGreco2021'])
+
+		# query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', paperId])
+
+		return render_template('index.html')
+
+	'''
+	@app.route('/exUpdateAttribute', methods = ['POST', 'GET'])
+	def exUpdateAttribute():
 		if request.method == 'POST':
 			try:
 				paperId = request.form['paperId']
@@ -149,6 +154,12 @@ def create_app(test_config=None):
 				con.rollback()
 			finally:
 				con.close()
+
+	@app.teardown_appcontext
+	def close_connection(exception):
+		db = getattr(g, '_database', None)
+		if db is not None:
+			db.close()
 	'''
 	
 	return app
