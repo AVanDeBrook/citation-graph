@@ -108,9 +108,9 @@ def create_app(test_config=None):
 		return render_template('index.html') # render whatever page you want, index is just a placeholder
 
 	# the commented out lines allow the data to come from the front-end
-	# @app.route('/exampleDatabaseUsage', methods = ['POST', 'GET'])
-	@app.route('/exampleDatabaseUsage')
-	def exampleDatabaseUsage():
+	# @app.route('/exampleGetPaperById', methods = ['POST', 'GET'])
+	@app.route('/exampleGetPaperById')
+	def exampleGetPaperById():
 		# if request.method == 'POST':
 		paperId = 'Corrina2020' # paperId = request.form['paperId']
 		paper = query_db(QUERY_GET_PAPER_BY_ID, [paperId], one=True)
