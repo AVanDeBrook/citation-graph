@@ -14,11 +14,11 @@ from blueprints import ref_info, lookup_paper
 DATABASE = 'citation_graph.db'
 QUERY_GET_PAPER_BY_ID = 'SELECT * FROM paper WHERE paper_id = ?' # working
 QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)' # working
+QUERY_UPDATE_ATTRIBUTE_ABSTRACT = 'UPDATE paper SET abstract = ? WHERE paper_id = ?' # working
 QUERY_GET_PAPERS_BY_ATTRIBUTE = 'SELECT * FROM paper WHERE ? = ?' # untested
 QUERY_GET_ATTRIBUTE_BY_ID = 'SELECT ? FROM paper WHERE paper_id = ?' # untested
 QUERY_GET_CITATIONS_BY_ID = 'SELECT reference_paper_id FROM citation WHERE paper_id = ?' # untested
 QUERY_INSERT_CITATION = 'INSERT INTO citation (paper_id, reference_paper_id) VALUES (?, ?)' # untested
-QUERY_UPDATE_ATTRIBUTE_ABSTRACT = 'UPDATE paper SET abstract = ? WHERE paper_id = ?' # untested
 
 def create_app(test_config=None):
 	if os.path.abspath(os.curdir).find(" ") != -1:
