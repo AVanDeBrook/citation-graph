@@ -12,13 +12,13 @@ from blueprints import ref_info, lookup_paper
 # webbrowser.open("../data/out/doxygen/html/index.html")
 
 DATABASE = 'citation_graph.db'
-QUERY_GET_PAPER_BY_ID = 'SELECT * FROM paper WHERE paper_id = ?'
-QUERY_GET_PAPERS_BY_ATTRIBUTE = 'SELECT * FROM paper WHERE ? = ?'
-QUERY_GET_ATTRIBUTE_BY_ID = 'SELECT ? FROM paper WHERE paper_id = ?'
-QUERY_GET_CITATIONS_BY_ID = 'SELECT reference_paper_id FROM citation WHERE paper_id = ?'
-QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)'
-QUERY_INSERT_CITATION = 'INSERT INTO citation (paper_id, reference_paper_id) VALUES (?, ?)'
-QUERY_UPDATE_ATTRIBUTE = 'UPDATE paper SET ? = ? WHERE paper_id = ?'
+QUERY_GET_PAPER_BY_ID = 'SELECT * FROM paper WHERE paper_id = ?' # working
+QUERY_GET_PAPERS_BY_ATTRIBUTE = 'SELECT * FROM paper WHERE ? = ?' # untested
+QUERY_GET_ATTRIBUTE_BY_ID = 'SELECT ? FROM paper WHERE paper_id = ?' # untested
+QUERY_GET_CITATIONS_BY_ID = 'SELECT reference_paper_id FROM citation WHERE paper_id = ?' # untested
+QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)' # working
+QUERY_INSERT_CITATION = 'INSERT INTO citation (paper_id, reference_paper_id) VALUES (?, ?)' # untested
+QUERY_UPDATE_ATTRIBUTE = 'UPDATE paper SET ? = ? WHERE paper_id = ?' # untested
 
 def create_app(test_config=None):
 	if os.path.abspath(os.curdir).find(" ") != -1:
@@ -67,7 +67,6 @@ def create_app(test_config=None):
 				db.cursor().executescript(f.read())
 			db.commit()
 
-	# TODO if (database doesn't exist yet):
 	init_db(app)
 
 	def query_db(query, args=(), one=False):
@@ -76,13 +75,13 @@ def create_app(test_config=None):
 		cur.close()
 		return (rv[0] if rv else None) if one else rv
 
-	# @app.route('/exAddPaper', methods = ['POST', 'GET'])
-	@app.route('/exAddPaper')
-	def exAddPaper():
+	# the commented out lines allow the data to come from the front-end
+	# @app.route('/exampleAddPaper', methods = ['POST', 'GET'])
+	@app.route('/exampleAddPaper')
+	def exampleAddPaper():
 		# if request.method == 'POST':
 		try:
-			# paperId = request.form['paperId']
-			paperId = 'Corrina2020'
+			paperId = 'Corrina2020' # paperId = request.form['paperId']
 
 			with sqlite3.connect(DATABASE) as con:
 				cur = con.cursor()
@@ -93,74 +92,31 @@ def create_app(test_config=None):
 			con.rollback()
 		finally:
 			con.close()
-		return render_template('index.html')
+		return render_template('index.html') # render whatever page you want, index is just a placeholder
 
-	@app.route('/exGetPapers')
-	def exGetPapers():
+	@app.route('/exampleGetPapers')
+	def exampleGetPapers():
 		rows = query_db('SELECT * FROM paper')
 		print(rows)
+		# this commented out line shows how you would send the data to the front-end (in rows)
 		# return render_template("newpage.html", rows = rows)
-		return render_template('index.html')
+		return render_template('index.html') # render whatever page you want, index is just a placeholder
 
-	# @app.route('/exDatabaseUsage', methods = ['POST', 'GET'])
-	@app.route('/exDatabaseUsage')
-	def exDatabaseUsage():
+	# the commented out lines allow the data to come from the front-end
+	# @app.route('/exampleDatabaseUsage', methods = ['POST', 'GET'])
+	@app.route('/exampleDatabaseUsage')
+	def exampleDatabaseUsage():
 		# if request.method == 'POST':
-		# paperId = request.form['paperId']
-		paperId = 'Corrina2020'
+		paperId = 'Corrina2020' # paperId = request.form['paperId']
 
 		paper = query_db(QUERY_GET_PAPER_BY_ID, [paperId], one=True)
 		if paper is None:
 			print('No such paper' + paperId)
 			return
 		else:
-			print('Retrieved whole paper, can access attributes:' + paper[1])
+			print('Retrieved whole paper, can access attributes like this:' + paper[1])
 
-		# papers = query_db(QUERY_GET_PAPERS_BY_ATTRIBUTE, ['month', 'December'], one=True)
-		# print('Retrieved all papers with attribue month = December' + papers.len)
-
-		# paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', paperId], one=True)
-		# print('Retrieved only attribute title from paper:' + paper['title_bib'])
-
-		# for citation in query_db(QUERY_GET_CITATIONS_BY_ID, paperId):
-		# 	print(paperId + 'references' + citation['reference_paper_id'])
-
-		# paper = query_db(QUERY_GET_ATTRIBUTE_BY_ID, ['title_bib', paperId], one=True)
-		# print('Retrieved only attribute title from paper:' + paper['title_bib'])
-
-		# for citation in query_db(QUERY_GET_CITATIONS_BY_ID, paperId):
-		# 	print(paperId + 'references' + citation['reference_paper_id'])
-
-		# query_db(QUERY_INSERT_CITATION, [paperId, 'DelGreco2021'])
-
-		# query_db(QUERY_UPDATE_ATTRIBUTE, ['last_accessed', 'right now!', paperId])
-
-		return render_template('index.html')
-
-	'''
-	@app.route('/exUpdateAttribute', methods = ['POST', 'GET'])
-	def exUpdateAttribute():
-		if request.method == 'POST':
-			try:
-				paperId = request.form['paperId']
-				attributeName = 'title_bib' # TODO determine which attribute
-				attributeValue = request.form[attributeName]
-
-				with sqlite3.connect(DATABASE) as con:
-					cur = con.cursor()
-					cur.execute(QUERY_UPDATE_ATTRIBUTE, (attributeName, attributeValue, paperId))
-					con.commit()
-			except:
-				con.rollback()
-			finally:
-				con.close()
-
-	@app.teardown_appcontext
-	def close_connection(exception):
-		db = getattr(g, '_database', None)
-		if db is not None:
-			db.close()
-	'''
+		return render_template('index.html') # render whatever page you want, index is just a placeholder
 	
 	return app
 
