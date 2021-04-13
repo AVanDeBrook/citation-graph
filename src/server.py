@@ -13,12 +13,12 @@ from blueprints import ref_info, lookup_paper
 
 DATABASE = 'citation_graph.db'
 QUERY_GET_PAPER_BY_ID = 'SELECT * FROM paper WHERE paper_id = ?' # working
+QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)' # working
 QUERY_GET_PAPERS_BY_ATTRIBUTE = 'SELECT * FROM paper WHERE ? = ?' # untested
 QUERY_GET_ATTRIBUTE_BY_ID = 'SELECT ? FROM paper WHERE paper_id = ?' # untested
 QUERY_GET_CITATIONS_BY_ID = 'SELECT reference_paper_id FROM citation WHERE paper_id = ?' # untested
-QUERY_INSERT_PAPER = 'INSERT INTO paper (paper_id, has_bib, has_tex) VALUES (?, ?, ?)' # working
 QUERY_INSERT_CITATION = 'INSERT INTO citation (paper_id, reference_paper_id) VALUES (?, ?)' # untested
-QUERY_UPDATE_ATTRIBUTE = 'UPDATE paper SET ? = ? WHERE paper_id = ?' # untested
+QUERY_UPDATE_ATTRIBUTE_ABSTRACT = 'UPDATE paper SET abstract = ? WHERE paper_id = ?' # untested
 
 def create_app(test_config=None):
 	if os.path.abspath(os.curdir).find(" ") != -1:
@@ -69,29 +69,34 @@ def create_app(test_config=None):
 
 	init_db(app)
 
+	# for getting results from database
+	# param one True if you only want one result
 	def query_db(query, args=(), one=False):
 		cur = get_db().execute(query, args)
 		rv = cur.fetchall()
 		cur.close()
 		return (rv[0] if rv else None) if one else rv
+	
+	# for executing a query on the database
+	def execute_db(query, args=()):
+		try:
+			with sqlite3.connect(DATABASE) as con:
+				cur = con.cursor()
+				cur.execute(query, args)
+				con.commit()
+		except:
+			print('Failed to execute query.')
+			con.rollback()
+		finally:
+			con.close()
 
 	# the commented out lines allow the data to come from the front-end
 	# @app.route('/exampleAddPaper', methods = ['POST', 'GET'])
 	@app.route('/exampleAddPaper')
 	def exampleAddPaper():
 		# if request.method == 'POST':
-		try:
-			paperId = 'Corrina2020' # paperId = request.form['paperId']
-
-			with sqlite3.connect(DATABASE) as con:
-				cur = con.cursor()
-				cur.execute(QUERY_INSERT_PAPER, (paperId, 0, 0))
-				con.commit()
-		except:
-			print('Failed to add paper')
-			con.rollback()
-		finally:
-			con.close()
+		paperId = 'Corrina2020' # paperId = request.form['paperId']
+		execute_db(QUERY_INSERT_PAPER, (paperId, 0, 0))
 		return render_template('index.html') # render whatever page you want, index is just a placeholder
 
 	@app.route('/exampleGetPapers')
@@ -108,15 +113,23 @@ def create_app(test_config=None):
 	def exampleDatabaseUsage():
 		# if request.method == 'POST':
 		paperId = 'Corrina2020' # paperId = request.form['paperId']
-
 		paper = query_db(QUERY_GET_PAPER_BY_ID, [paperId], one=True)
 		if paper is None:
 			print('No such paper' + paperId)
 			return
 		else:
 			print('Retrieved whole paper, can access attributes like this:' + paper[1])
-
 		return render_template('index.html') # render whatever page you want, index is just a placeholder
 	
+	# the commented out lines allow the data to come from the front-end
+	# @app.route('/exampleUpdateAttribute', methods = ['POST', 'GET'])
+	@app.route('/exampleUpdateAttribute')
+	def exampleUpdateAttribute():
+		# if request.method == 'POST':
+		paperId = 'Corrina2020' # paperId = request.form['paperId']
+		abstract = 'The new abstract' # abstract = request.form['abstract']
+		execute_db(QUERY_UPDATE_ATTRIBUTE_ABSTRACT, (abstract, paperId))
+		return render_template('index.html') # render whatever page you want, index is just a placeholder
+
 	return app
 
