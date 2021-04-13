@@ -1,5 +1,5 @@
 -- uncomment this line if you want to refresh your database on next run
-DROP TABLE IF EXISTS paper;
+-- DROP TABLE IF EXISTS paper;
 CREATE TABLE IF NOT EXISTS paper (
   `sequence_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   `paper_id` VARCHAR(255) NOT NULL,
