@@ -3,6 +3,8 @@ import os
 from cwriter import CWriter
 from parsers.bibtexparser import BibtexParser
 from parsers.latexparser import LatexParser
+from db import *
+
 from flask import *
 from multiprocessing import Process
 
@@ -43,6 +45,12 @@ def new_paper():
 		for entry in bibtex_parser.dict_entries:
 			if entry['ID'] in latex_parser.get_citation_list():
 				bibtex_refs.append(entry)
+
+		execute_db('INSERT INTO paper (paper_id, has_bib, has_tex, title_tex, author_tex) VALUES (?, ?, ?, ?, ?)',
+			[latex_parser.id, True, True, latex_parser.get_document_title(), str(latex_parser.get_author_info())])
+
+		resp = query_db('SELECT * FROM paper')
+		print(resp)
 
 		session['paper_id'] = latex_parser.id
 		session['bibtex_filename'] = bib_file.filename
