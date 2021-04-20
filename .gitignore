@@ -16,6 +16,14 @@ __pycache__/
 *.pyc
 **/*.pyc
 
+# Python package files
+*.egg-info
+**/*.egg-info
+
+# Database files
+*.db
+**/*.db
+
 # Internal Server files
 src/instance
 
