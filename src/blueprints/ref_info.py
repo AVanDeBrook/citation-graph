@@ -19,6 +19,7 @@ def new_paper():
 		tex_file = request.files['texFile']
 		bib_file = request.files['bibFile']
 		file_path = os.path.join(current_app.config['USER_PAPERS'], tex_file.filename.split('.')[0])
+		bibtex_ids = []
 		bibtex_refs = []
 
 		try:
@@ -43,7 +44,7 @@ def new_paper():
 
 		for entry in bibtex_parser.dict_entries:
 			if entry['ID'] in latex_parser.get_citation_list():
-				bibtex_refs.append(entry)
+				bibtex_ids.append(entry['ID'])
 				execute_db('''INSERT INTO paper (paper_id, title, author, year) VALUES (?, ?, ?, ?)''',
 							args=[
 								entry['ID'],
@@ -61,14 +62,13 @@ def new_paper():
 						latex_parser.get_abstract(),
 						str([ref['ID'] for ref in bibtex_refs])
 					])
+		for bib_id in bibtex_ids:
+			bibtex_refs.append(query_db("SELECT * FROM paper WHERE paper_id = ?", args=[bib_id], one=True))
 
 		session['paper_id'] = latex_parser.id
 		session['bibtex_filename'] = bib_file.filename
 		session['tex_filename'] = tex_file.filename
 		session['references'] = len(bibtex_refs)
-
-		for row in query_db('SELECT * FROM paper'):
-			print(row)
 
 		return render_template('reference_info.html',
 			paper=query_db("SELECT * FROM paper WHERE paper_id = ?", args=[session['paper_id']], one=True),
@@ -107,9 +107,6 @@ def update():
 		for citations in csv.reader([request.form['citation-list'].strip('[]')]):
 			for citation in citations:
 				bibtex_refs.append(query_db('SELECT * FROM paper WHERE paper_id = ?', args=[citation.strip().replace('\'', '')], one=True))
-
-		for row in query_db('SELECT * FROM paper'):
-			print(row)
 
 		return render_template('reference_info.html',
 			paper=query_db("SELECT * FROM paper WHERE paper_id = ?", [session['paper_id']], one=True),
