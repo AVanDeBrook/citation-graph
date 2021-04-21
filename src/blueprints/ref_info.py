@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-import os
+import os, csv
 from cwriter import CWriter
 from parsers.bibtexparser import BibtexParser
 from parsers.latexparser import LatexParser
 from db import *
 
 from flask import *
-from multiprocessing import Process
 
 bp = Blueprint('papers', __name__, url_prefix='/papers')
 
@@ -45,18 +44,36 @@ def new_paper():
 		for entry in bibtex_parser.dict_entries:
 			if entry['ID'] in latex_parser.get_citation_list():
 				bibtex_refs.append(entry)
+				execute_db('''INSERT INTO paper (paper_id, title, author, year) VALUES (?, ?, ?, ?)''',
+							args=[
+								entry['ID'],
+								entry['title'],
+								entry['author'],
+								entry['year']
+							])
 
-		execute_db('INSERT INTO paper (paper_id, has_bib, has_tex, title_tex, author_tex) VALUES (?, ?, ?, ?, ?)',
-			[latex_parser.id, True, True, latex_parser.get_document_title(), str(latex_parser.get_author_info())])
-
-		resp = query_db('SELECT * FROM paper')
-		print(resp)
+		execute_db('''INSERT INTO paper (paper_id, title, author, year, abstract, bib_references) VALUES (?, ?, ?, ?, ?, ?)''',
+					args=[
+						latex_parser.id,
+						str(latex_parser.get_document_title()),
+						str(latex_parser.get_author_info()),
+						"YEAR",
+						latex_parser.get_abstract(),
+						str([ref['ID'] for ref in bibtex_refs])
+					])
 
 		session['paper_id'] = latex_parser.id
 		session['bibtex_filename'] = bib_file.filename
 		session['tex_filename'] = tex_file.filename
+		session['references'] = len(bibtex_refs)
 
-		return render_template('reference_info.html', refs=bibtex_refs, lp=latex_parser)
+		for row in query_db('SELECT * FROM paper'):
+			print(row)
+
+		return render_template('reference_info.html',
+			paper=query_db("SELECT * FROM paper WHERE paper_id = ?", args=[session['paper_id']], one=True),
+			refs=bibtex_refs
+		)
 
 @bp.route('/doxygen', methods=('GET', 'POST'))
 def doxygen():
@@ -73,6 +90,31 @@ def doxygen():
 
 		with open(os.path.join(file_path, "html", "index.html"), "r") as doxy_index:
 			return doxy_index.read()
+
+@bp.route('/update', methods=["POST"])
+def update():
+	if request.method == 'POST':
+		bibtex_refs = []
+		execute_db('UPDATE paper SET (title, author, abstract, bib_references) = (?, ?, ?, ?) WHERE paper_id = ?',
+			args=[
+				request.form['title'],
+				request.form['author'],
+				request.form['abstract'],
+				request.form['citation-list'],
+				session['paper_id']
+			])
+
+		for citations in csv.reader([request.form['citation-list'].strip('[]')]):
+			for citation in citations:
+				bibtex_refs.append(query_db('SELECT * FROM paper WHERE paper_id = ?', args=[citation.strip().replace('\'', '')], one=True))
+
+		for row in query_db('SELECT * FROM paper'):
+			print(row)
+
+		return render_template('reference_info.html',
+			paper=query_db("SELECT * FROM paper WHERE paper_id = ?", [session['paper_id']], one=True),
+			refs=bibtex_refs
+		)
 
 @bp.route('/<path:file>')
 def doxygen_files(file):

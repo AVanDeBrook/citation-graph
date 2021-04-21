@@ -30,7 +30,7 @@ def query_db(query, args=(), one=False):
 	cur = get_db().execute(query, args)
 	rv = cur.fetchall()
 	cur.close()
-	return (rv[0] if rv else None) if one else rv
+	return (create_dict_db(rv[0]) if rv else None) if one else [create_dict_db(row) for row in rv]
 
 # for executing a query on the database
 def execute_db(query, args=()):
@@ -45,3 +45,17 @@ def execute_db(query, args=()):
 		con.rollback()
 	finally:
 		con.close()
+
+def create_dict_db(db_row: list):
+	paper_row = {
+		"paper_id": db_row[0],
+		"title": db_row[1],
+		"author": db_row[2],
+		"year": db_row[3],
+		"abstract": db_row[4],
+		"bib_references": db_row[5]
+	}
+
+	return paper_row
+
+
