@@ -57,5 +57,3 @@ def create_dict_db(db_row: list):
 	}
 
 	return paper_row
-
-
