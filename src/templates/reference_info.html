@@ -4,6 +4,9 @@
 		<title>Paper Info</title>
 		<!-- <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"> -->
 		<style>
+			* {
+				font-size: 11pt;
+			}
 			table {
 				border-collapse: collapse;
 				width: 100%;
@@ -15,35 +18,52 @@
 				border: 1px solid black;
 				padding: 1%;
 			}
-			tr:nth-child(even) {
+			tr:nth-child(even) * {
 				background-color: lightgray;
+			}
+			textarea {
+				width: 100%;
+				height: fit-content;
+				resize: none;
+				border-width: 0;
 			}
 		</style>
 	</head>
 	<body>
-		<h3>Paper Info</h3>
-		<table>
-			<tr>
-				<th>Title</th>
-				<td contenteditable>{{ lp.get_document_title() }}</td>
-			</tr>
-			<tr>
-				<th>Author(s)</th>
-				<td contenteditable>{{ lp.get_author_info() }}</td>
-			</tr>
-			<tr>
-				<th>Abstract</th>
-				<td contenteditable>{{ lp.get_abstract() }}</td>
-			</tr>
-			<tr>
-				<th>BibTeX References</th>
-				<td contenteditable>{{ lp.get_citation_list() }}</td>
-			</tr>
-			<tr>
-				<th>ID</th>
-				<td contenteditable>{{ lp.id }}</td>
-			</tr>
-		</table>
+		<form action="/papers/update" method=POST id="paper-info">
+			<h3>Paper Info</h3>
+			<table>
+				<tr>
+					<th>Title</th>
+					<td>
+						<textarea name="title" form="paper-info">{{ paper.title }}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>Author(s)</th>
+					<td>
+						<textarea name="author" form="paper-info">{{ paper.author }}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>Abstract</th>
+					<td>
+						<textarea name="abstract" form="paper-info">{{ paper.abstract }}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>BibTeX References</th>
+					<td>
+						<textarea name="citation-list" form="paper-info">{{ paper.bib_references }}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<td>{{ paper.paper_id }}</td>
+				</tr>
+			</table>
+			<input type="submit" value="Update Paper Info" form="paper-info">
+		</form>
 
 		<h3>Bibliography Info</h3>
 		<table>
@@ -54,8 +74,8 @@
 				<th>Year</th>
 			</tr>
 			{% for ref in refs %}
-			<tr contenteditable>
-				<td>{{ ref.ID }}</td>
+			<tr>
+				<td>{{ ref.paper_id }}</td>
 				<td>{{ ref.title }}</td>
 				<td>{{ ref.author }}</td>
 				<td>{{ ref.year }}</td>
