@@ -60,7 +60,7 @@ def new_paper():
 						str(latex_parser.get_author_info()),
 						"YEAR",
 						latex_parser.get_abstract(),
-						str([ref['ID'] for ref in bibtex_refs])
+						str([ref for ref in bibtex_ids])
 					])
 		for bib_id in bibtex_ids:
 			bibtex_refs.append(query_db("SELECT * FROM paper WHERE paper_id = ?", args=[bib_id], one=True))
