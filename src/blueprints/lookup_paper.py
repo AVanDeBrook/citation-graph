@@ -13,8 +13,10 @@ def search():
 def find_paper():
 	if request.method == 'POST':
 		bibtex_refs = []
+		#paper is a dictionary with the query results
 		paper = query_db("SELECT * FROM paper WHERE paper_id = ?", args=[escape(request.form['search'])], one=True)
-		i = 0
+		#iterate through each item in the list after the brackets are stripped
+		#access the dictionary by using paper["what i am looking for"]
 		for citations in csv.reader([paper['bib_references'].strip('[]')]):
 			for citation in citations:
 				print(citation)
